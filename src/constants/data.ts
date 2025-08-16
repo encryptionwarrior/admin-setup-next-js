@@ -30,6 +30,30 @@ export const navItems: NavItem[] = [
     items: [] // No child items
   },
   {
+    title: 'Tasks',
+    url: '/dashboard/tasks',
+    icon: 'checkList',
+    shortcut: ['p', 'p'],
+    isActive: false,
+    items: [] // No child items
+  },
+  {
+    title: 'Chats',
+    url: '/dashboard/chats',
+    icon: 'checkList',
+    shortcut: ['p', 'p'],
+    isActive: false,
+    items: [] // No child items
+  },
+  {
+    title: 'Users',
+    url: '/dashboard/users',
+    icon: 'checkList',
+    shortcut: ['p', 'p'],
+    isActive: false,
+    items: [] // No child items
+  },
+  {
     title: 'Account',
     url: '#', // Placeholder as there is no direct link for the parent
     icon: 'billing',
