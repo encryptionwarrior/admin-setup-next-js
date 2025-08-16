@@ -1,6 +1,8 @@
 import type { DataTableConfig } from '@/config/data-table';
 import type { FilterItemSchema } from '@/lib/parsers';
+import { Icon, IconProps } from '@tabler/icons-react';
 import type { ColumnSort, Row, RowData } from '@tanstack/react-table';
+import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
 declare module '@tanstack/react-table' {
   // biome-ignore lint/correctness/noUnusedVariables: Interface type parameters required by @tanstack/react-table
@@ -19,7 +21,7 @@ export interface Option {
   label: string;
   value: string;
   count?: number;
-  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  icon?: ForwardRefExoticComponent<IconProps & RefAttributes<Icon>>;
 }
 
 export type FilterOperator = DataTableConfig['operators'][number];
