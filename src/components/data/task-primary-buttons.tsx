@@ -1,3 +1,4 @@
+"use client"
 import { IconDownload, IconPlus } from '@tabler/icons-react';
 import { Button } from '@/components/ui/button';
 import { useTasks } from '@/context/task-context';

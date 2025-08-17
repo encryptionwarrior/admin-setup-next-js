@@ -144,7 +144,7 @@ export default function Chats() {
           {selectedUser ? (
             <div
               className={cn(
-                'bg-primary-foreground absolute inset-0 left-full z-50 hidden w-full flex-1 flex-col rounded-md border shadow-xs transition-all duration-200 sm:static sm:z-auto sm:flex',
+                ' absolute inset-0 left-full z-50 hidden w-full flex-1 flex-col rounded-md border shadow-xs transition-all duration-200 sm:static sm:z-auto sm:flex',
                 mobileSelectedUser && 'left-0 flex'
               )}
             >
@@ -220,7 +220,7 @@ export default function Chats() {
                                   'chat-box max-w-72 px-3 py-2 break-words shadow-lg',
                                   msg.sender === 'You'
                                     ? 'bg-primary/85 text-primary-foreground/75 self-end rounded-[16px_16px_0_16px]'
-                                    : 'bg-secondary self-start rounded-[16px_16px_16px_0]'
+                                    : ' self-start rounded-[16px_16px_16px_0]'
                                 )}
                               >
                                 {msg.message}{' '}
@@ -302,10 +302,10 @@ export default function Chats() {
           ) : (
             <div
               className={cn(
-                'bg-primary-foreground absolute inset-0 left-full z-50 hidden w-full flex-1 flex-col justify-center rounded-md border shadow-xs transition-all duration-200 sm:static sm:z-auto sm:flex'
+                'absolute inset-0 left-full z-50 hidden w-full flex-1 flex-col pt-10 rounded-md border shadow-xs transition-all duration-200 sm:static sm:z-auto sm:flex'
               )}
             >
-              <div className='flex flex-col items-center space-y-6'>
+              <div className='flex flex-col items-center space-y-6 '>
                 <div className='border-border flex size-16 items-center justify-center rounded-full border-2'>
                   <IconMessages className='size-8' />
                 </div>
