@@ -7,6 +7,7 @@ import { DataTableColumnHeader } from '@/components/data/data-table-column-heade
 import LongText from './long-text';
 import { User } from './schema';
 import { DataTableRowActions } from '@/components/data/data-table-row-action';
+import { UserDataTableRowActions } from './user-data-table-row-action';
 
 export const columns: ColumnDef<User>[] = [
   {
@@ -137,6 +138,6 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     id: 'actions',
-    cell: DataTableRowActions
+    cell: UserDataTableRowActions
   }
 ];

@@ -7,6 +7,7 @@ import { UsersTable } from '@/features/users/users-table';
 import UsersProvider from '@/context/users-context';
 import { userListSchema } from '@/features/users/schema';
 import { users } from '@/features/users/users';
+import { tasks } from '@/components/data/tasks';
 
 export default function Users() {
   // Parse user list
@@ -24,8 +25,8 @@ export default function Users() {
           </div>
           <UsersPrimaryButtons />
         </div>
-        <div className='-mx-4 flex-1 overflow-auto px-4 py-1 lg:flex-row lg:space-y-0 lg:space-x-12'>
-          <UsersTable data={userList} columns={columns} />
+        <div className='-mx-4 h-[calc(100vh-120px)] flex-1 overflow-auto px-4 py-1 sm:w-[calc(100vw-250px)] lg:flex-row lg:space-y-0 lg:space-x-12'>
+          <UsersTable data={users} columns={columns} />
         </div>
       </Main>
 
