@@ -1,3 +1,4 @@
+"use client"
 import { useTasks } from '@/context/task-context';
 import { ConfirmDialog } from './confirm-dialog';
 import { showSubmittedData } from '@/features/settings/show-submitted-data';

@@ -7,6 +7,8 @@ import { tasks } from '@/components/data/tasks';
 import { TasksDialogs } from '@/components/data/task-dialog';
 import { TasksPrimaryButtons } from '@/components/data/task-primary-buttons';
 import PageContainer from '@/components/layout/page-container';
+import { Suspense } from 'react';
+import { DataTableSkeleton } from '@/components/ui/table/data-table-skeleton';
 
 export default function Tasks() {
   return (
@@ -22,9 +24,17 @@ export default function Tasks() {
           </div>
           <TasksPrimaryButtons />
         </div>
-        <div className='flex-1overflow-auto -mx-4 h-[calc(100vh-120px)] px-4 py-1 sm:w-[calc(100vw-250px)] lg:flex-row lg:space-y-0 lg:space-x-12'>
+         <Suspense
+                  // key={key}
+                  fallback={
+                    <DataTableSkeleton columnCount={5} rowCount={8} filterCount={2} />
+                  }
+                >
+                   <div className='flex-1overflow-auto -mx-4 h-[calc(100vh-120px)] px-4 py-1 sm:w-[calc(100vw-250px)] lg:flex-row lg:space-y-0 lg:space-x-12'>
           <DataTable data={tasks} columns={columns} />
         </div>
+                </Suspense>
+      
       </Main>
 
       <TasksDialogs />

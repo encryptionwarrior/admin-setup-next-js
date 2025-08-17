@@ -26,7 +26,7 @@ export default function Users() {
           <UsersPrimaryButtons />
         </div>
         <div className='-mx-4 h-[calc(100vh-120px)] flex-1 overflow-auto px-4 py-1 sm:w-[calc(100vw-250px)] lg:flex-row lg:space-y-0 lg:space-x-12'>
-          {/* <UsersTable data={users} columns={columns} /> */}
+          <UsersTable data={users} columns={columns} />
         </div>
       </Main>
 
