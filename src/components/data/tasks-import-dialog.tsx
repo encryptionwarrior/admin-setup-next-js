@@ -1,4 +1,3 @@
-'use client';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -34,6 +33,7 @@ const formSchema = z.object({
       'Please upload csv format.'
     )
 });
+
 
 interface Props {
   open: boolean;
