@@ -36,7 +36,8 @@ export const columns: ColumnDef<Product>[] = [
       label: 'Name',
       placeholder: 'Search products...',
       variant: 'text',
-      icon: Text
+      icon: Text,
+      className: ""
     },
     enableColumnFilter: true
   },
@@ -61,7 +62,8 @@ export const columns: ColumnDef<Product>[] = [
     meta: {
       label: 'categories',
       variant: 'multiSelect',
-      options: CATEGORY_OPTIONS
+      options: CATEGORY_OPTIONS,
+         className: ""
     }
   },
   {
