@@ -1,3 +1,4 @@
+"use client"
 import { useState } from 'react';
 import {
   ColumnDef,
@@ -39,6 +40,7 @@ interface DataTableProps {
   data: User[];
 }
 
+
 export function UsersTable({ columns, data }: DataTableProps) {
   const [rowSelection, setRowSelection] = useState({});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -68,10 +70,10 @@ export function UsersTable({ columns, data }: DataTableProps) {
   });
 
   return (
-    <div className='space-y-4'>
+    <div className='h-full w-full space-y-4 overflow-auto'>
       <UserDataTableToolbar table={table} />
       <div className='overflow-hidden rounded-md border'>
-        <Table>
+        <Table className='overflow-auto'>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} className='group/row'>

@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker';
+import { User } from './schema';
 
 // export const users = Array.from({ length: 20 }, () => {
 //   const firstName = faker.person.firstName()
@@ -29,7 +30,7 @@ import { faker } from '@faker-js/faker';
 //   }
 // })
 
-export const users = [
+export const users: User[] = [
   {
     id: 'b1a8f6b0-3c76-4ec1-953d-401c8e2b6d10',
     firstName: 'Alice',
@@ -39,8 +40,8 @@ export const users = [
     phoneNumber: '+1 202 555 0147',
     status: 'active',
     role: 'admin',
-    createdAt: '2022-09-15T10:24:00.000Z',
-    updatedAt: '2025-08-15T08:12:00.000Z',
+    createdAt: new Date('2022-09-15T10:24:00.000Z'),
+    updatedAt: new Date('2025-08-15T08:12:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',
@@ -55,8 +56,8 @@ export const users = [
     phoneNumber: '+44 7700 900321',
     status: 'inactive',
     role: 'cashier',
-    createdAt: '2021-12-02T14:45:00.000Z',
-    updatedAt: '2025-08-10T09:20:00.000Z',
+    createdAt: new Date('2021-12-02T14:45:00.000Z'),
+    updatedAt: new Date('2025-08-10T09:20:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',
@@ -71,8 +72,8 @@ export const users = [
     phoneNumber: '+33 6 12 34 56 78',
     status: 'invited',
     role: 'manager',
-    createdAt: '2020-07-11T08:17:00.000Z',
-    updatedAt: '2025-08-14T12:32:00.000Z',
+    createdAt: new Date('2020-07-11T08:17:00.000Z'),
+    updatedAt: new Date('2025-08-14T12:32:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',
@@ -87,8 +88,8 @@ export const users = [
     phoneNumber: '+49 160 98765432',
     status: 'suspended',
     role: 'superadmin',
-    createdAt: '2019-03-20T12:00:00.000Z',
-    updatedAt: '2025-08-12T07:42:00.000Z',
+    createdAt: new Date('2019-03-20T12:00:00.000Z'),
+    updatedAt: new Date('2025-08-12T07:42:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',
@@ -103,8 +104,8 @@ export const users = [
     phoneNumber: '+1 303 555 0199',
     status: 'active',
     role: 'manager',
-    createdAt: '2023-01-25T09:14:00.000Z',
-    updatedAt: '2025-08-16T11:51:00.000Z',
+    createdAt: new Date('2023-01-25T09:14:00.000Z'),
+    updatedAt: new Date('2025-08-16T11:51:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',
@@ -119,8 +120,8 @@ export const users = [
     phoneNumber: '+61 412 345 678',
     status: 'inactive',
     role: 'cashier',
-    createdAt: '2022-04-10T15:05:00.000Z',
-    updatedAt: '2025-08-11T06:27:00.000Z',
+    createdAt: new Date('2022-04-10T15:05:00.000Z'),
+    updatedAt: new Date('2025-08-11T06:27:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',
@@ -135,8 +136,8 @@ export const users = [
     phoneNumber: '+34 612 987 654',
     status: 'invited',
     role: 'admin',
-    createdAt: '2021-02-19T11:11:00.000Z',
-    updatedAt: '2025-08-10T10:41:00.000Z',
+    createdAt: new Date('2021-02-19T11:11:00.000Z'),
+    updatedAt: new Date('2025-08-10T10:41:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',
@@ -151,8 +152,8 @@ export const users = [
     phoneNumber: '+1 408 555 0193',
     status: 'suspended',
     role: 'superadmin',
-    createdAt: '2018-12-01T07:56:00.000Z',
-    updatedAt: '2025-08-13T14:29:00.000Z',
+    createdAt: new Date('2018-12-01T07:56:00.000Z'),
+    updatedAt: new Date('2025-08-13T14:29:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',
@@ -167,8 +168,8 @@ export const users = [
     phoneNumber: '+81 90 1234 5678',
     status: 'active',
     role: 'manager',
-    createdAt: '2020-10-05T13:42:00.000Z',
-    updatedAt: '2025-08-15T09:47:00.000Z',
+    createdAt: new Date('2020-10-05T13:42:00.000Z'),
+    updatedAt: new Date('2025-08-15T09:47:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',
@@ -183,8 +184,8 @@ export const users = [
     phoneNumber: '+1 646 555 0190',
     status: 'inactive',
     role: 'cashier',
-    createdAt: '2021-09-14T17:39:00.000Z',
-    updatedAt: '2025-08-16T10:15:00.000Z',
+    createdAt: new Date('2021-09-14T17:39:00.000Z'),
+    updatedAt: new Date('2025-08-16T10:15:00.000Z'),
     title:
       'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
     label: 'documentation',

@@ -1,10 +1,11 @@
-import { columns } from '@/components/data/columns';
-import { TaskTable } from './task-table';
 import { searchParamsCache } from '@/lib/searchparams';
 import { fakeProducts } from '@/constants/mock-api';
 import { Product } from '@/constants/data';
+import { UsersTable } from './users-table';
+import { columns } from './user-columns';
+import { UserTaskTable } from './user-table';
 
-export default async function TaskListingPage() {
+export default async function UserTaskListingPage() {
 
   const page = searchParamsCache.get('page');
   const search = searchParamsCache.get('name');
@@ -23,5 +24,5 @@ export default async function TaskListingPage() {
   const products: Product[] = data.products;
   // Showcasing the use of search params cache in nested RSCs
 
-  return <TaskTable columns={columns} />;
+  return <UserTaskTable columns={columns} />;
 }
