@@ -29,7 +29,7 @@ export default function ForgotPassword() {
         </CardContent>
         <CardFooter>
           <p className='text-muted-foreground mx-auto px-8 text-center text-sm text-balance'>
-            Don't have an account?{' '}
+            Dont have an account?
             <Link
               href='/sign-up'
               className='hover:text-primary underline underline-offset-4'
