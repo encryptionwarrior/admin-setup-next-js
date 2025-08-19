@@ -24,9 +24,8 @@ import {
   TableRow
 } from '@/components/ui/table';
 import { User } from './schema';
-import { DataTablePagination } from '@/components/data/data-table-pagination';
-import { DataTableToolbars } from '@/components/data/data-table-toolbars';
 import { UserDataTableToolbar } from './user-data-table-toolbars';
+import { DataTablePagination } from '@/components/ui/table/data-table-pagination';
 
 declare module '@tanstack/react-table' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -133,7 +132,7 @@ export function UsersTable({ columns, data }: DataTableProps) {
           </TableBody>
         </Table>
       </div>
-      {/* <DataTablePagination table={table} /> */}
+      <DataTablePagination table={table} />
     </div>
   );
 }

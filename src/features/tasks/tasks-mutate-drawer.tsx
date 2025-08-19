@@ -22,9 +22,9 @@ import {
   SheetHeader,
   SheetTitle
 } from '@/components/ui/sheet';
-import { Task } from '../data/schema';
 import { showSubmittedData } from '@/features/settings/show-submitted-data';
-import { SelectDropdown } from './select-dropdown';
+import { SelectDropdown } from '../../components/data/select-dropdown';
+import { Task } from './schema';
 
 interface Props {
   open: boolean;

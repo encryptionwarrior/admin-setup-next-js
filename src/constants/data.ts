@@ -1,4 +1,4 @@
-import { NavItem } from '@/types';
+import { NavItem, TNavParentItems } from '@/types';
 
 export type Product = {
   photo_url: string;
@@ -11,8 +11,7 @@ export type Product = {
   updated_at: string;
 };
 
-//Info: The following data is used for the sidebar navigation and Cmd K bar.
-export const navItems: NavItem[] = [
+export const navGeneralItems: NavItem[] = [
   {
     title: 'Dashboard',
     url: '/dashboard/overview',
@@ -84,6 +83,156 @@ export const navItems: NavItem[] = [
   }
 ];
 
+export const navPagesItems: NavItem[] = [
+  {
+    title: 'Auth',
+    url: '#', // Placeholder as there is no direct link for the parent
+    icon: 'halfShield',
+    isActive: true,
+    items: [
+      {
+        title: 'Sign In',
+        url: '/sign-in',
+        isActive: false,
+        shortcut: ['p', 'p'],
+        items: [] // No child items
+      },
+      {
+        title: 'Sign Up',
+        url: '/sign-up',
+        isActive: false,
+        shortcut: ['p', 'p'],
+        items: [] // No child items
+      },
+      {
+        title: 'Forgot Password',
+        url: '/forgot-password',
+        isActive: false,
+        shortcut: ['p', 'p'],
+        items: [] // No child items
+      },
+      {
+        title: 'OTP',
+        url: '/otp',
+        isActive: false,
+        shortcut: ['p', 'p'],
+        items: [] // No child items
+      }
+    ]
+  },
+  {
+    title: 'Errors',
+    url: '#', // Placeholder as there is no direct link for the parent
+    icon: 'bug',
+    isActive: true,
+    items: [
+      {
+        title: 'Unauthorized',
+        url: '/unauthorized',
+
+        isActive: false,
+        shortcut: ['p', 'p'],
+        items: [] // No child items
+      },
+      {
+        title: 'Forbidden',
+        url: '/forbidden',
+
+        isActive: false,
+        shortcut: ['p', 'p'],
+        items: [] // No child items
+      },
+      {
+        title: 'Not Found',
+        url: '/not-found',
+
+        isActive: false,
+        shortcut: ['p', 'p'],
+        items: [] // No child items
+      },
+      {
+        title: 'Internal Server Error',
+        url: '/general-error',
+
+        isActive: false,
+        shortcut: ['p', 'p'],
+        items: [] // No child items
+      },
+      {
+        title: 'Maintenance Error',
+        url: '/maintenance-error',
+
+        isActive: false,
+        shortcut: ['p', 'p'],
+        items: [] // No child items
+      }
+    ]
+  }
+];
+export const navOtherItems: NavItem[] = [
+  {
+    title: 'Settings',
+    url: '#', // Placeholder as there is no direct link for the parent
+    icon: 'settings',
+    isActive: true,
+    items: [
+      {
+        title: 'Profile',
+        url: '/dashboard/settings/profile',
+        icon: 'user',
+        shortcut: ['m', 'm']
+      },
+      {
+        title: 'Account',
+        shortcut: ['l', 'l'],
+        url: '/dashboard/settings/account',
+        icon: 'tool'
+      },
+      {
+        title: 'Appearance',
+        shortcut: ['l', 'l'],
+        url: '/dashboard/settings/appearance',
+        icon: 'pallete'
+      },
+      {
+        title: 'Notifications',
+        shortcut: ['l', 'l'],
+        url: '/dashboard/settings/notifications',
+        icon: 'notification'
+      },
+      {
+        title: 'Display',
+        shortcut: ['l', 'l'],
+        url: '/dashboard/settings/display',
+        icon: 'browserCheck'
+      },
+    ]
+  },
+  {
+    title: 'Help Center',
+    url: '/help-center', // Placeholder as there is no direct link for the parent
+    icon: 'help',
+    isActive: true
+  }
+];
+
+export const navMainItems: TNavParentItems[] = [
+  {
+    label: 'General',
+    navItems: navGeneralItems
+  },
+  {
+    label: 'Pages',
+    navItems: navPagesItems
+  },
+  {
+    label: 'Others',
+    navItems: navOtherItems
+  },
+];
+
+//Info: The following data is used for the sidebar navigation and Cmd K bar.
+
 export interface SaleUser {
   id: number;
   name: string;
@@ -133,5 +282,88 @@ export const recentSalesData: SaleUser[] = [
     amount: '+$39.00',
     image: 'https://api.slingacademy.com/public/sample-users/5.png',
     initials: 'SD'
+  }
+];
+
+export const overviewCardData = [
+  {
+    title: 'Total Revenue',
+    value: '$1,250.00',
+    change: '+12.5%',
+    changeIcon: 'trendingUp',
+    description: 'Trending up this month',
+    footer: 'Visitors for the last 6 months'
+  },
+  // {
+  //   title: 'New Customers',
+  //   value: '1,234',
+  //   change: '-20%',
+  //   changeIcon: 'trendingDown',
+  //   description: 'Down 20% this period',
+  //   footer: 'Acquisition needs attention'
+  // },
+  // {
+  //   title: 'Active Accounts',
+  //   value: '45,678',
+  //   change: '+12.5%',
+  //   changeIcon: 'trendingUp',
+  //   description: 'Strong user retention',
+  //   footer: 'Engagement exceed targets'
+  // },
+  // {
+  //   title: 'Growth Rate',
+  //   value: '4.5%',
+  //   change: '+4.5%',
+  //   changeIcon: 'trendingUp',
+  //   description: 'Steady performance increase',
+  //   footer: 'Meets growth projections'
+  // },
+  {
+    title: 'Total Bookings',
+    value: '1,234',
+    change: '+20%',
+    changeIcon: 'trendingUp',
+    description: 'Up 20% this period',
+    footer: 'Engagement exceed targets'
+  },
+  {
+    title: 'Total Mechanics',
+    value: '1,234',
+    change: '+20%',
+    changeIcon: 'trendingUp',
+    description: 'Up 20% this period',
+    footer: 'Engagement exceed targets'
+  },
+  {
+    title: 'Ongoing services',
+    value: '1,234',
+    change: '+20%',
+    changeIcon: 'trendingUp',
+    description: 'Up 20% this period',
+    footer: 'Engagement exceed targets'
+  },
+  {
+    title: 'Upcoming services',
+    value: '1,234',
+    change: '+20%',
+    changeIcon: 'trendingUp',
+    description: 'Up 20% this period',
+    footer: 'Engagement exceed targets'
+  },
+  {
+    title: 'Cancelled services',
+    value: '1,234',
+    change: '+20%',
+    changeIcon: 'trendingUp',
+    description: 'Up 20% this period',
+    footer: 'Engagement exceed targets'
+  },
+  {
+    title: 'Completed services',
+    value: '1,234',
+    change: '+20%',
+    changeIcon: 'trendingUp',
+    description: 'Up 20% this period',
+    footer: 'Engagement exceed targets'
   }
 ];
