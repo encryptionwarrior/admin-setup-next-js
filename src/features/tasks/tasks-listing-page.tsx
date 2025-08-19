@@ -1,4 +1,4 @@
-import { columns } from '@/components/data/columns';
+import { columns } from '@/features/tasks/task-columns';
 import { TaskTable } from './task-table';
 import { searchParamsCache } from '@/lib/searchparams';
 import { fakeProducts } from '@/constants/mock-api';

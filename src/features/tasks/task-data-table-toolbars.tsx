@@ -3,9 +3,9 @@ import { Table } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-import { priorities, statuses } from '../data/data';
-import { DataTableFacetedFilter } from '../ui/table/data-table-faceted-filter';
-import { DataTableViewOptions } from '../ui/table/data-table-view-options';
+import { DataTableFacetedFilter } from '../../components/ui/table/data-table-faceted-filter';
+import { DataTableViewOptions } from '../../components/ui/table/data-table-view-options';
+import { priorities, statuses } from './task-data';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;

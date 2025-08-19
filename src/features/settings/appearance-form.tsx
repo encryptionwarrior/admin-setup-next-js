@@ -17,8 +17,8 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { fonts } from '@/config/fonts';
 import { useFont } from '@/context/font-context';
-import { useTheme } from '@/context/theme-context';
 import { showSubmittedData } from './show-submitted-data';
+import { useTheme } from 'next-themes';
 
 const appearanceFormSchema = z.object({
   theme: z.enum(['light', 'dark']),
@@ -29,7 +29,7 @@ type AppearanceFormValues = z.infer<typeof appearanceFormSchema>;
 
 export function AppearanceForm() {
   const { font, setFont } = useFont();
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   // This can come from your database or API.
   const defaultValues: Partial<AppearanceFormValues> = {

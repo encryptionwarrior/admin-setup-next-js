@@ -6,8 +6,8 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { showSubmittedData } from '../settings/show-submitted-data';
-import { ConfirmDialog } from '@/components/data/confirm-dialog';
 import { User } from './schema';
+import { ConfirmDialog } from '@/components/ui/confirm-dialog';
 
 interface Props {
   open: boolean;

@@ -1,6 +1,6 @@
 "use client"
 import { useTasks } from '@/context/task-context';
-import { ConfirmDialog } from './confirm-dialog';
+import { ConfirmDialog } from '../../components/ui/confirm-dialog';
 import { showSubmittedData } from '@/features/settings/show-submitted-data';
 import { TasksImportDialog } from './tasks-import-dialog';
 import { TasksMutateDrawer } from './tasks-mutate-drawer';

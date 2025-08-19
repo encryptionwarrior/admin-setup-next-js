@@ -1,3 +1,4 @@
+"use client"
 import { fonts } from '@/config/fonts';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 

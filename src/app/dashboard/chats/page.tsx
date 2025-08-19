@@ -64,7 +64,7 @@ export default function Chats() {
       {/* ===== Top Heading ===== */}
 
       <Main fixed>
-        <section className='flex h-full gap-6'>
+        <section className='flex h-full gap-4'>
           {/* Left Side */}
           <div className='flex w-full flex-col gap-2 sm:w-56 lg:w-72 2xl:w-80'>
             <div className='bg-background sticky top-0 z-10 -mx-4 px-4 pb-3 shadow-md sm:static sm:z-auto sm:mx-0 sm:p-0 sm:shadow-none'>
@@ -97,7 +97,7 @@ export default function Chats() {
               </label>
             </div>
 
-            <ScrollArea className='-mx-3 h-full overflow-scroll p-3'>
+            <ScrollArea className='-mx-3 h-full max-h-[calc(100vh-200px)] p-3'>
               {filteredChatList.map((chatUsr) => {
                 const { id, profile, username, messages, fullName } = chatUsr;
                 const lastConvo = messages[0];
@@ -206,7 +206,7 @@ export default function Chats() {
               </div>
 
               {/* Conversation */}
-              <div className='flex flex-1 flex-col gap-2 rounded-md px-4 pt-0 pb-4'>
+              <div className=' max-h-[calc(100vh-160px)] flex flex-1 flex-col gap-2 rounded-md px-4 pt-0 pb-4'>
                 <div className='flex size-full flex-1'>
                   <div className='chat-text-container relative -mr-4 flex flex-1 flex-col overflow-y-hidden'>
                     <div className='chat-flex flex h-40 w-full grow flex-col-reverse justify-start gap-4 overflow-y-auto py-2 pr-4 pb-4'>

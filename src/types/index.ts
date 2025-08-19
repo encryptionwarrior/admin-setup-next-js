@@ -13,6 +13,11 @@ export interface NavItem {
   items?: NavItem[];
 }
 
+export interface TNavParentItems {
+  label: string;
+  navItems: NavItem[]
+}
+
 export interface NavItemWithChildren extends NavItem {
   items: NavItemWithChildren[];
 }

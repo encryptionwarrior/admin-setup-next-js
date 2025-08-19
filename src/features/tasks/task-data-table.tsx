@@ -22,9 +22,8 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table';
-import { DataTablePagination } from './data-table-pagination';
-import { DataTableToolbar } from '../ui/table/data-table-toolbar';
-import { DataTableToolbars } from './data-table-toolbars';
+import { DataTableToolbars } from './task-data-table-toolbars';
+import { DataTablePagination } from '@/components/ui/table/data-table-pagination';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

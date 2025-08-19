@@ -4,10 +4,9 @@ import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 import { callTypes, userTypes } from './data';
-import { DataTableColumnHeader } from '@/components/data/data-table-column-header';
+import { DataTableColumnHeader } from '@/features/tasks/task-data-table-column-header';
 import LongText from './long-text';
 import { User } from './schema';
-import { DataTableRowActions } from '@/components/data/data-table-row-action';
 import { UserDataTableRowActions } from './user-data-table-row-action';
 
 export const columns: ColumnDef<User>[] = [
