@@ -8,6 +8,7 @@ import { ThemeSelector } from '../theme-selector';
 import { ModeToggle } from './ThemeToggle/theme-toggle';
 import CtaGithub from './cta-github';
 import { ProfileDropdown } from './profile-dropdown';
+import { ConfigDrawer } from '../config-drawer';
 
 export default function Header() {
   return (
@@ -25,6 +26,7 @@ export default function Header() {
         </div>
         <UserNav />
         <ModeToggle />
+        <ConfigDrawer/>
         <ThemeSelector />
         <ProfileDropdown />
       </div>

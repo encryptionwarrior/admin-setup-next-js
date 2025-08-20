@@ -21,12 +21,13 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { type ChatUser, type Convo } from '@/features/chats/chat-types';
-import { conversations } from '@/features/chats/convo.json';
+import convoData from '@/features/chats/convo.json'
 // Fake Data
 import { Main } from '@/features/settings/main';
 import { NewChat } from '@/features/chats/new-chats';
 
 export default function Chats() {
+  const { conversations } = convoData;
   const [search, setSearch] = useState('');
   const [selectedUser, setSelectedUser] = useState<ChatUser | null>(null);
   const [mobileSelectedUser, setMobileSelectedUser] = useState<ChatUser | null>(
@@ -36,9 +37,11 @@ export default function Chats() {
     useState(false);
 
   // Filtered data based on the search query
-  const filteredChatList = conversations.filter(({ fullName }) =>
+  const filteredChatList = conversations?.filter(({ fullName }) =>
     fullName.toLowerCase().includes(search.trim().toLowerCase())
   );
+
+  console.log('Filtered Chat List:', conversations);
 
   const currentMessage = selectedUser?.messages.reduce(
     (acc: Record<string, Convo[]>, obj) => {
@@ -57,7 +60,7 @@ export default function Chats() {
     {}
   );
 
-  const users = conversations.map(({ messages, ...user }) => user);
+  const users = conversations?.map(({ messages, ...user }) => user);
 
   return (
     <>

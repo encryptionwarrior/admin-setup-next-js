@@ -31,7 +31,15 @@ export const navGeneralItems: NavItem[] = [
   {
     title: 'Tasks',
     url: '/dashboard/tasks',
-    icon: 'checkList',
+    icon: 'listTodo',
+    shortcut: ['p', 'p'],
+    isActive: false,
+    items: [] // No child items
+  },
+  {
+    title: 'Apps',
+    url: '/dashboard/chats',
+    icon: 'package',
     shortcut: ['p', 'p'],
     isActive: false,
     items: [] // No child items
@@ -39,7 +47,7 @@ export const navGeneralItems: NavItem[] = [
   {
     title: 'Chats',
     url: '/dashboard/chats',
-    icon: 'checkList',
+    icon: 'message',
     shortcut: ['p', 'p'],
     isActive: false,
     items: [] // No child items
@@ -47,7 +55,7 @@ export const navGeneralItems: NavItem[] = [
   {
     title: 'Users',
     url: '/dashboard/users',
-    icon: 'checkList',
+    icon: 'users',
     shortcut: ['p', 'p'],
     isActive: false,
     items: [] // No child items
@@ -87,7 +95,7 @@ export const navPagesItems: NavItem[] = [
   {
     title: 'Auth',
     url: '#', // Placeholder as there is no direct link for the parent
-    icon: 'halfShield',
+    icon: 'checkShield',
     isActive: true,
     items: [
       {
@@ -129,7 +137,7 @@ export const navPagesItems: NavItem[] = [
       {
         title: 'Unauthorized',
         url: '/unauthorized',
-
+        icon: "lock",
         isActive: false,
         shortcut: ['p', 'p'],
         items: [] // No child items
@@ -137,7 +145,7 @@ export const navPagesItems: NavItem[] = [
       {
         title: 'Forbidden',
         url: '/forbidden',
-
+        icon: "userx",
         isActive: false,
         shortcut: ['p', 'p'],
         items: [] // No child items
@@ -145,7 +153,7 @@ export const navPagesItems: NavItem[] = [
       {
         title: 'Not Found',
         url: '/not-found',
-
+        icon: "filex",
         isActive: false,
         shortcut: ['p', 'p'],
         items: [] // No child items
@@ -153,7 +161,7 @@ export const navPagesItems: NavItem[] = [
       {
         title: 'Internal Server Error',
         url: '/general-error',
-
+        icon: "serverOff",
         isActive: false,
         shortcut: ['p', 'p'],
         items: [] // No child items
@@ -161,7 +169,7 @@ export const navPagesItems: NavItem[] = [
       {
         title: 'Maintenance Error',
         url: '/maintenance-error',
-
+        icon: 'construction',
         isActive: false,
         shortcut: ['p', 'p'],
         items: [] // No child items
@@ -179,39 +187,39 @@ export const navOtherItems: NavItem[] = [
       {
         title: 'Profile',
         url: '/dashboard/settings/profile',
-        icon: 'user',
+        icon: 'userCong',
         shortcut: ['m', 'm']
       },
       {
         title: 'Account',
         shortcut: ['l', 'l'],
         url: '/dashboard/settings/account',
-        icon: 'tool'
+        icon: 'wrench'
       },
       {
         title: 'Appearance',
         shortcut: ['l', 'l'],
         url: '/dashboard/settings/appearance',
-        icon: 'pallete'
+        icon: 'palette'
       },
       {
         title: 'Notifications',
         shortcut: ['l', 'l'],
         url: '/dashboard/settings/notifications',
-        icon: 'notification'
+        icon: 'bell'
       },
       {
         title: 'Display',
         shortcut: ['l', 'l'],
         url: '/dashboard/settings/display',
-        icon: 'browserCheck'
+        icon: 'monitor'
       },
     ]
   },
   {
     title: 'Help Center',
     url: '/help-center', // Placeholder as there is no direct link for the parent
-    icon: 'help',
+    icon: 'helpCircle',
     isActive: true
   }
 ];
