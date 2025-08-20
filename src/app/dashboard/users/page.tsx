@@ -25,7 +25,7 @@ export default async function Page(props: pageProps) {
 
 
   return (
-    <PageContainer scrollable={false}>
+    <PageContainer scrollable={true}>
       <UsersProvider>
       <TasksProvider>
       <div className='flex flex-1 flex-col space-y-4'>
@@ -44,7 +44,7 @@ export default async function Page(props: pageProps) {
             <DataTableSkeleton columnCount={5} rowCount={8} filterCount={2} />
           }
         >
-          <div className='flex-1overflow-auto -mx-6 h-[calc(100vh-200px)] px-4 py-1 sm:w-[calc(100vw-250px)] lg:flex-row lg:space-y-0 lg:space-x-12'>
+          <div className='flex 1overflow-auto -mx-6  pl-4 pr-2 md:pr-4 py-1 w-[calc(100dvw-0px)]  md:w-[calc(100dvw-250px)] lg:w-[calc(100dvw-250px)]  lg:flex-row lg:space-y-0 lg:space-x-12'>
           <UserTaskListingPage/>
           </div>
         </Suspense>

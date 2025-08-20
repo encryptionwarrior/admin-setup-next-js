@@ -209,7 +209,7 @@ export default function Chats() {
               </div>
 
               {/* Conversation */}
-              <div className=' max-h-[calc(100vh-160px)] flex flex-1 flex-col gap-2 rounded-md px-4 pt-0 pb-4'>
+              <div className='max-h-[calc(100vh-80px)] sm:max-h-[calc(100dvh-160px)] bg-background flex flex-1 flex-col gap-2 rounded-md px-4 pt-0 pb-4'>
                 <div className='flex size-full flex-1'>
                   <div className='chat-text-container relative -mr-4 flex flex-1 flex-col overflow-y-hidden'>
                     <div className='chat-flex flex h-40 w-full grow flex-col-reverse justify-start gap-4 overflow-y-auto py-2 pr-4 pb-4'>
