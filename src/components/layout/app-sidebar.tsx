@@ -47,6 +47,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 import { Icons } from '../icons';
 import { OrgSwitcher } from '../org-switcher';
+import { useLayout } from '@/context/layout-provider';
+import { useDirection } from '@/context/direction-provider';
 export const company = {
   name: 'Acme Inc',
   logo: IconPhotoUp,
@@ -64,6 +66,8 @@ export default function AppSidebar() {
   const { isOpen } = useMediaQuery();
   const { user } = useUser();
   const router = useRouter();
+  const { collapsible, variant } = useLayout();
+  const { dir  } = useDirection()
   const handleSwitchTenant = (_tenantId: string) => {
     // Tenant switching functionality would be implemented here
   };
@@ -74,8 +78,9 @@ export default function AppSidebar() {
     // Side effects based on sidebar state changes
   }, [isOpen]);
 
+
   return (
-    <Sidebar collapsible='icon'>
+    <Sidebar collapsible={collapsible} variant={variant} side={dir === "ltr" ? "left" : "right"} >
       <SidebarHeader>
         <OrgSwitcher
           tenants={tenants}

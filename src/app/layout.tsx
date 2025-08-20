@@ -10,6 +10,7 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import './globals.css';
 import './theme.css';
 import { FontProvider } from '@/context/font-context';
+import { DirectionProvider } from '@/context/direction-provider';
 
 const META_THEME_COLORS = {
   light: '#ffffff',
@@ -67,10 +68,12 @@ export default async function RootLayout({
             enableColorScheme
           >
              <FontProvider>
+             <DirectionProvider>
             <Providers activeThemeValue={activeThemeValue as string}>
               <Toaster />
               {children}
             </Providers>
+            </DirectionProvider>
             </FontProvider>
           </ThemeProvider>
         </NuqsAdapter>

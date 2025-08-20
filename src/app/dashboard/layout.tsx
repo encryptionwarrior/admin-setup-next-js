@@ -2,6 +2,8 @@ import KBar from '@/components/kbar';
 import AppSidebar from '@/components/layout/app-sidebar';
 import Header from '@/components/layout/header';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
+import { LayoutProvider } from '@/context/layout-provider';
+import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
@@ -21,13 +23,16 @@ export default async function DashboardLayout({
   return (
     <KBar>
       <SidebarProvider defaultOpen={defaultOpen}>
+      <LayoutProvider>
         <AppSidebar />
         <SidebarInset>
+      
           <Header />
           {/* page main content */}
           {children}
           {/* page main content ends */}
         </SidebarInset>
+        </LayoutProvider>
       </SidebarProvider>
     </KBar>
   );
