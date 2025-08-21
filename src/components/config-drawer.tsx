@@ -28,7 +28,9 @@ import { IconDir } from '~/custom/icon-dir'
 import { Collapsible, useLayout } from '@/context/layout-provider'
 import { useTheme } from 'next-themes'
 
-export function ConfigDrawer() {
+type TVariant = "default" | "link" | "destructive" | "outline" | "secondary" | "ghost"
+
+export function ConfigDrawer({variant}: {variant?: TVariant}) {
   const { setOpen } = useSidebar()
   const { resetDir } = useDirection()
   const { setTheme } = useTheme();
@@ -43,15 +45,15 @@ export function ConfigDrawer() {
 
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger asChild className='justify-start'>
         <Button
-          size='icon'
-          variant='ghost'
+          // size='icon'
+          variant={variant}
           aria-label='Open theme settings'
           aria-describedby='config-drawer-description'
-          className='rounded-full'
+          className='rounded-md w-full '
         >
-          <Settings aria-hidden='true' />
+        Theme Settings <Settings aria-hidden='true' />
         </Button>
       </SheetTrigger>
       <SheetContent className='flex flex-col'>
