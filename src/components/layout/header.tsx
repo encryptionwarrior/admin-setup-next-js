@@ -9,6 +9,7 @@ import { ModeToggle } from './ThemeToggle/theme-toggle';
 import CtaGithub from './cta-github';
 import { ProfileDropdown } from './profile-dropdown';
 import { ConfigDrawer } from '../config-drawer';
+import HamburgerSidebar from './headerMenu';
 
 export default function Header() {
   return (
@@ -19,16 +20,23 @@ export default function Header() {
         <Breadcrumbs />
       </div>
 
-      <div className='flex flex-wrap items-center gap-2 px-4'>
+      <div className='flex flex-wrap items-center gap-1 px-4'>
         <CtaGithub />
-        <div className='hidden md:flex'>
+        <div className='hidden lg:flex'>
           <SearchInput />
         </div>
         <UserNav />
         <ModeToggle />
-        <ConfigDrawer/>
+        <div className='hidden xl:block'>
+        <ConfigDrawer variant='secondary'/>
+        </div>
+        <div className='hidden xl:block'>
         <ThemeSelector />
-        <ProfileDropdown />
+        </div>
+        <div className='xl:hidden w-6'>
+        <HamburgerSidebar/>
+        </div>
+        {/* <ProfileDropdown /> */}
       </div>
     </header>
   );
