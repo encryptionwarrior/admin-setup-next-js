@@ -25,7 +25,7 @@ export default async function Page(props: pageProps) {
 
 
   return (
-    <PageContainer scrollable={true}>
+    <PageContainer>
       <UsersProvider>
       <TasksProvider>
       <div className='flex flex-1 flex-col space-y-4'>
