@@ -29,7 +29,7 @@ type AppearanceFormValues = z.infer<typeof appearanceFormSchema>;
 
 export function AppearanceForm() {
   const { font, setFont } = useFont();
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   // This can come from your database or API.
   const defaultValues: Partial<AppearanceFormValues> = {

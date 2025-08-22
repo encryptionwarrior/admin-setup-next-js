@@ -7,7 +7,6 @@ import { UserNav } from './user-nav';
 import { ThemeSelector } from '../theme-selector';
 import { ModeToggle } from './ThemeToggle/theme-toggle';
 import CtaGithub from './cta-github';
-import { ProfileDropdown } from './profile-dropdown';
 import { ConfigDrawer } from '../config-drawer';
 import HamburgerSidebar from './headerMenu';
 

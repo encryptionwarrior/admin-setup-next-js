@@ -41,8 +41,6 @@ export default function Chats() {
     fullName.toLowerCase().includes(search.trim().toLowerCase())
   );
 
-  console.log('Filtered Chat List:', conversations);
-
   const currentMessage = selectedUser?.messages.reduce(
     (acc: Record<string, Convo[]>, obj) => {
       const key = format(obj.timestamp, 'd MMM, yyyy');

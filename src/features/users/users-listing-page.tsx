@@ -19,8 +19,6 @@ export default async function UserTaskListingPage() {
   };
 
   const data = await fakeProducts.getProducts(filters);
-  const totalProducts = data.total_products;
-  const products: Product[] = data.products;
 
   return <UserTaskTable columns={columns} />;
 }

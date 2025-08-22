@@ -37,8 +37,6 @@ interface ProfileFormType {
 }
 
 const ProfileCreateForm: React.FC<ProfileFormType> = ({ initialData }) => {
-  const params = useParams();
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const title = initialData ? 'Edit product' : 'Create Your Profile';

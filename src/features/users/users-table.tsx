@@ -104,7 +104,7 @@ export function UsersTable({ columns, data }: DataTableProps) {
                   className='group/row'
                 >
                   {row.getVisibleCells().map((cell) => {
-                    console.log('check users table +++ ', cell.getContext());
+                   
                     return (
                       <TableCell
                         key={cell.id}

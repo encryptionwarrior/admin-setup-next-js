@@ -95,7 +95,7 @@ export function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && 'selected'}
                 >
                   {row.getVisibleCells().map((cell) => {
-                    console.log('check tasks table +++', cell.getContext());
+                   
                     return (
                       <TableCell
                         key={cell.id}
