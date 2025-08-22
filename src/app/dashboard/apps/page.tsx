@@ -1,5 +1,4 @@
 "use client"
-
 import { type ChangeEvent, useState, useEffect } from "react"
 import { SlidersHorizontal, ArrowUpAZ, ArrowDownAZ } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -25,7 +24,7 @@ const appText = new Map<AppType, string>([
   ["notConnected", "Not Connected"],
 ])
 
-export default function page() {
+export default function Apps() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
