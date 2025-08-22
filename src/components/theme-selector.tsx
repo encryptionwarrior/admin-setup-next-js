@@ -50,7 +50,7 @@ const MONO_THEMES = [
   }
 ];
 
-export function ThemeSelector({className}: {className?: string}) {
+export function ThemeSelector({}: {className?: string}) {
   const { activeTheme, setActiveTheme } = useThemeConfig();
 
   return (

@@ -70,6 +70,7 @@ export default function AppSidebar() {
   const { dir  } = useDirection()
   const handleSwitchTenant = (_tenantId: string) => {
     // Tenant switching functionality would be implemented here
+    console.log(_tenantId);
   };
 
   const activeTenant = tenants[0];

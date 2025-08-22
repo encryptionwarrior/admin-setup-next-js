@@ -9,7 +9,7 @@ import {
   CardFooter
 } from '@/components/ui/card';
 import { overviewCardData } from '@/constants/data';
-import { IconTrendingDown, IconTrendingUp } from '@tabler/icons-react';
+import { IconTrendingUp } from '@tabler/icons-react';
 import React from 'react';
 
 export default function OverViewLayout({
