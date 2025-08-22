@@ -33,7 +33,7 @@ export default function Header() {
         <div className='hidden xl:block'>
         <ThemeSelector />
         </div>
-        <div className='xl:hidden w-6'>
+        <div className='xl:hidden w-6 mr-2'>
         <HamburgerSidebar/>
         </div>
         {/* <ProfileDropdown /> */}

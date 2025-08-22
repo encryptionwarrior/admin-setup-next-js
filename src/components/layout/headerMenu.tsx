@@ -48,7 +48,7 @@ export default function HamburgerSidebar() {
         onClick={() => setOpen((p) => !p)}
         variant='secondary'
         size='icon'
-        className="group/toggle size-8 fixed top-4 md:top-6 right-4 z-50 inline-flex h-8 w-8 items-center justify-center p-2 backdrop-blur shadow-md hover:shadow-lg transition active:scale-95 "
+        className="group/toggle size-8 fixed top-4 md:top-4 right-4 z-50 inline-flex h-8 w-8 items-center justify-center p-2 backdrop-blur shadow-md hover:shadow-lg transition active:scale-95 "
       >
        <Menu size="20px" />
       </Button>

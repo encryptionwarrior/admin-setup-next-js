@@ -38,7 +38,7 @@ export const navGeneralItems: NavItem[] = [
   },
   {
     title: 'Apps',
-    url: '/dashboard/chats',
+    url: '/dashboard/apps',
     icon: 'package',
     shortcut: ['p', 'p'],
     isActive: false,
