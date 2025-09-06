@@ -6,6 +6,8 @@ import { UsersDialogs } from '@/features/users/user-dialogs'
 import { Separator } from '@radix-ui/react-dropdown-menu'
 import React, { Suspense } from 'react'
 import BooksPrimaryButtons from './modules/BooksPrimaryButtons'
+import BooksListingPage from './modules/BooksListingPage'
+import { BooksColumns } from './modules/BooksColumns'
 
 const Page = () => {
   return (
@@ -23,10 +25,10 @@ const Page = () => {
         </div>
         <Separator />
           <div className='flex 1overflow-auto -mx-6  pl-4 pr-2 md:pr-4 py-1 w-[calc(100dvw-0px)]  md:w-[calc(100dvw-250px)] lg:w-[calc(100dvw-250px)]  lg:flex-row lg:space-y-0 lg:space-x-12'>
-          <BlogListingPage/>
+          <BooksListingPage columns={BooksColumns} />
           </div>
       </div>
-      <UsersDialogs />
+      {/* <UsersDialogs /> */}
     </PageContainer>
   )
 }

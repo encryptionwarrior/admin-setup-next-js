@@ -20,6 +20,11 @@ const baseConfig: NextConfig = {
         hostname: 'avatars.githubusercontent.com',
         port: ''
       },
+      {
+        protocol: 'http',
+        hostname: 'books.google.com',
+        port: ''
+      },
     ]
   },
   transpilePackages: ['geist']

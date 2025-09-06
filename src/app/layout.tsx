@@ -11,6 +11,8 @@ import './globals.css';
 import './theme.css';
 import { FontProvider } from '@/context/font-context';
 import { DirectionProvider } from '@/context/direction-provider';
+import { ReactQueryClientProvider } from '@/lib/react-query-provider';
+import { AuthProvider } from '@/context/AuthContext/AuthContext';
 
 const META_THEME_COLORS = {
   light: '#ffffff',
@@ -70,8 +72,10 @@ export default async function RootLayout({
              <FontProvider>
              <DirectionProvider>
             <Providers activeThemeValue={activeThemeValue as string}>
+            <ReactQueryClientProvider>
               <Toaster />
-              {children}
+              <AuthProvider>{children}</AuthProvider>
+              </ReactQueryClientProvider>
             </Providers>
             </DirectionProvider>
             </FontProvider>
