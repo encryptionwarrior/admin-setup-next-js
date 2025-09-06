@@ -1,9 +1,10 @@
 import { searchParamsCache } from '@/lib/searchparams';
 import { fakeProducts } from '@/constants/mock-api';
-import { columns } from './user-columns';
-import { UserTaskTable } from './user-table';
+import { Product } from '@/constants/data';
+import { blogColumns } from './blog-columns';
+import { BlogTaskTable } from './blog-task-table';
 
-export default async function UserTaskListingPage() {
+export default async function BlogListingPage() {
 
   const page = searchParamsCache.get('page');
   const search = searchParamsCache.get('name');
@@ -19,5 +20,5 @@ export default async function UserTaskListingPage() {
 
   const data = await fakeProducts.getProducts(filters);
 
-  return <UserTaskTable columns={columns} />;
+  return <BlogTaskTable columns={blogColumns} />;
 }

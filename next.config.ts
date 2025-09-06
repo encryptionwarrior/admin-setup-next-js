@@ -9,7 +9,17 @@ const baseConfig: NextConfig = {
         protocol: 'https',
         hostname: 'api.slingacademy.com',
         port: ''
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+        port: ''
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: ''
+      },
     ]
   },
   transpilePackages: ['geist']

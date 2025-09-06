@@ -38,6 +38,7 @@ import {
   IconPalette,
   IconNotification,
   IconBrowserCheck,
+  IconArticle
   
   
 } from '@tabler/icons-react';
@@ -99,5 +100,6 @@ export const Icons = {
   palette: Palette,
   bell: Bell,
   monitor: Monitor,
-  helpCircle: HelpCircle
+  helpCircle: HelpCircle,
+  article: IconArticle
 };
