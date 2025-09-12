@@ -5,7 +5,7 @@ import { TUserFrontEndModel, TUserModel } from './schema';
 
 import axiosInstance from '@/api/axiosInstance/axiosInstance';
 import { endpoints } from '@/api/endpoints/endpoints';
-import { TCommonSchema } from '@/types/common/common.schema';
+import { TCommonSchema } from '@/types/common/common-schema';
 
 export const useFontEndGetAllusers = (payload: TCommonSchema['BaseApiPaginationPayload']) => {
   return useQuery<TUserFrontEndModel['getAllUserFrontendSuccessResponse'], Error>({

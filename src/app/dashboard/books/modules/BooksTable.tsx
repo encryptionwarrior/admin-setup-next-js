@@ -25,7 +25,6 @@ import {
 } from '@/components/ui/table';
 import { DataTablePagination } from '@/components/ui/table/data-table-pagination';
 import { BooksDataTableToolbar } from './BooksDataTableToolbar';
-import { TBooksModel } from '@/api/hooks/books/schema';
 
 declare module '@tanstack/react-table' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -34,13 +33,13 @@ declare module '@tanstack/react-table' {
   }
 }
 
-interface DataTableProps {
-  columns: ColumnDef<TBooksModel["IDOC"]>[];
-  data: TBooksModel["IDOC"][];
+interface DataTableProps<T> {
+  columns: ColumnDef<T>[];
+  data: T[];
 }
 
 
-export function BooksTable({ columns, data }: DataTableProps) {
+export function BooksTable<T>({ columns, data }: DataTableProps<T>) {
   const [rowSelection, setRowSelection] = useState({});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);

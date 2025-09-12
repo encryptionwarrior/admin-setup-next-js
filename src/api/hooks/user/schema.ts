@@ -1,5 +1,5 @@
-import { UserRole } from '@/types/apps/userTypes';
-import { TCommonSchema } from '@/types/common/common.schema';
+import { TCommonSchema } from "@/types/common/common-schema";
+
 
 export type TUserModel = {
   IDoc: {
@@ -48,7 +48,7 @@ export type TUserModel = {
   };
   IAdminResponseBody: {
     _id: string;
-    role: UserRole;
+    role: string;
     firstName: string;
     lastName: string;
     fullName: string;
@@ -129,7 +129,7 @@ export type TUserFrontEndModel = {
   };
   IUserFrontendResponseBody: {
     _id: string;
-    role: UserRole;
+    role: string;
     firstName: string;
     lastName: string;
     fullName: string;

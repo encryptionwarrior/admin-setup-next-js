@@ -4,6 +4,7 @@ import { TCommonSchema } from "@/types/common/common-schema";
 export type TBooksModel = {
     IDOC: {
         kind: string
+        username: string;
         id: number
         etag: string
         volumeInfo: TBooksModel["VolumeInfo"]
@@ -31,6 +32,8 @@ export type TBooksModel = {
         canonicalVolumeLink: string
         averageRating?: number
         ratingsCount?: number
+        username: string
+        role?: string
       }
 
       IndustryIdentifier: {

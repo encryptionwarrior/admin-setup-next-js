@@ -1,4 +1,4 @@
-import { TCommonSchema } from '@/types/common/common.schema';
+import { TCommonSchema } from "@/types/common/common-schema";
 
 export type TCategoryModel = {
   IDoc: {

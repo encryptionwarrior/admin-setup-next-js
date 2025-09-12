@@ -14,11 +14,11 @@ import {
 import { useRouter } from 'next/navigation';
 import { TBooksModel } from '@/api/hooks/books/schema';
 
-interface DataTableRowActionsProps {
-  row: Row<TBooksModel["IDOC"]>;
+interface DataTableRowActionsProps<T> {
+  row: Row<T>;
 }
 
-export function BookDataTableRowActions({ row }: DataTableRowActionsProps) {
+export function BookDataTableRowActions<T extends {id: string}>({ row }: DataTableRowActionsProps<T>) {
   const router = useRouter();
   return (
     <>
@@ -36,7 +36,7 @@ export function BookDataTableRowActions({ row }: DataTableRowActionsProps) {
           <DropdownMenuItem
             onClick={() => {
               // setOpen('edit');
-              router.push(`/dashboard/blogs/${row.original.id}`);
+              router.push(`/dashboard/blogs/${row?.original?.id}`);
             }}
           >
             Edit
