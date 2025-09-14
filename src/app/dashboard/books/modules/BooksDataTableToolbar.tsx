@@ -43,13 +43,13 @@ export function BooksDataTableToolbar<TData>({
               ]}
             />
           )}
-          {hasTitle && (
+          {/* {hasTitle && (
             <DataTableFacetedFilter
               column={hasTitle ? table.getColumn('author') : ""}
               title='Role'
               options={bloguserTypes.map((t) => ({ ...t }))}
             />
-          )}
+          )} */}
         </div>
         {isFiltered && (
           <Button

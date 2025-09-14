@@ -48,200 +48,87 @@ export function BooksColumnsFn<T extends {volumeInfo: T}>({}: BooksColumnsFnProp
       enableSorting: false,
       enableHiding: false
     },
-    {
-      accessorKey: 'image',
-      header: ({ column }) => (
-        <DataTableColumnHeader column={column} title='Image' />
-      ),
-      cell: ({ row }) => {
-        const imageUlr =  row?.original?.volumeInfo?.imageLinks?.thumbnail ? row?.original?.volumeInfo?.imageLinks?.thumbnail : "";
-        return (
-          <div className='relative aspect-square'>
-            <Image
-              src={imageUlr}
-              // alt={row.getValue('etag')}
-              alt={"ss"}
-              fill
-              className='rounded-lg'
-            />
-          </div>
-        );
-      },
-      meta: {
-        className: cn(
-          'drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.1)] dark:drop-shadow-[0_1px_2px_rgb(255_255_255_/_0.1)] lg:drop-shadow-none',
-          'bg-background group-hover/row:bg-muted group-data-[state=selected]/row:bg-muted',
-          'sticky left-6 md:table-cell'
-        )
-      },
-      enableHiding: false
-    },
-    {
-      accessorKey: 'title',
-      header: ({ column }) => (
-        <DataTableColumnHeader column={column} title='Title' />
-      ),
-      cell: ({ row }) => {
-          const { title} = row.original?.volumeInfo;
-          return(
-        <BlogLongText className='max-w-52'>{title}</BlogLongText>
-      )},
-      enableHiding: false
-    },
-    {
-      accessorKey: 'author',
-      header: ({ column }) => (
-        <DataTableColumnHeader column={column} title='Author' />
-      ),
-      cell: ({ row }) => {
-          const { authors } = row.original?.volumeInfo;
-          const author = authors ? authors.join(", ") : "Unknown Author";
-          return(
-        <BlogLongText className='max-w-36'>{author}</BlogLongText>
-      )},
-      enableHiding: false
-    },
+    // {
+    //   accessorKey: 'image',
+    //   header: ({ column }) => (
+    //     <DataTableColumnHeader column={column} title='Image' />
+    //   ),
+    //   cell: ({ row }) => {
+    //     const imageUlr =  row?.original?.volumeInfo?.imageLinks?.thumbnail ? row?.original?.volumeInfo?.imageLinks?.thumbnail : "";
+    //     return (
+    //       <div className='relative aspect-square'>
+    //         <Image
+    //           src={imageUlr}
+    //           // alt={row.getValue('etag')}
+    //           alt={"ss"}
+    //           fill
+    //           className='rounded-lg'
+    //         />
+    //       </div>
+    //     );
+    //   },
+    //   meta: {
+    //     className: cn(
+    //       'drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.1)] dark:drop-shadow-[0_1px_2px_rgb(255_255_255_/_0.1)] lg:drop-shadow-none',
+    //       'bg-background group-hover/row:bg-muted group-data-[state=selected]/row:bg-muted',
+    //       'sticky left-6 md:table-cell'
+    //     )
+    //   },
+    //   enableHiding: false
+    // },
+    // {
+    //   accessorKey: 'title',
+    //   header: ({ column }) => (
+    //     <DataTableColumnHeader column={column} title='Title' />
+    //   ),
+    //   cell: ({ row }) => {
+    //       const { title} = row.original?.volumeInfo;
+    //       return(
+    //     <BlogLongText className='max-w-52'>{title}</BlogLongText>
+    //   )},
+    //   enableHiding: false
+    // },
+    // {
+    //   accessorKey: 'author',
+    //   header: ({ column }) => (
+    //     <DataTableColumnHeader column={column} title='Author' />
+    //   ),
+    //   cell: ({ row }) => {
+    //       const { authors } = row.original?.volumeInfo;
+    //       const author = authors ? authors.join(", ") : "Unknown Author";
+    //       return(
+    //     <BlogLongText className='max-w-36'>{author}</BlogLongText>
+    //   )},
+    //   enableHiding: false
+    // },
   
-    {
-      accessorKey: 'status',
-      header: ({ column }) => (
-        <DataTableColumnHeader column={column} title='Status' />
-      ),
-      cell: ({ row }) => {
-        const { printType } = row.original?.volumeInfo;
-        const badgeColor = blogcallTypes.get(printType);
-        return (
-          <div className='flex space-x-2'>
-            <Badge variant='outline' className={cn('capitalize', badgeColor)}>
-              {printType}
-            </Badge>
-          </div>
-        );
-      },
-      filterFn: (row, id, value) => {
-        return value.includes(row.getValue(id));
-      },
-      enableHiding: false,
-      enableSorting: false
-    },
-    {
-      id: 'actions',
-      cell: BookDataTableRowActions
-    }
+    // {
+    //   accessorKey: 'status',
+    //   header: ({ column }) => (
+    //     <DataTableColumnHeader column={column} title='Status' />
+    //   ),
+    //   cell: ({ row }) => {
+    //     const { printType } = row.original?.volumeInfo;
+    //     const badgeColor = blogcallTypes.get(printType);
+    //     return (
+    //       <div className='flex space-x-2'>
+    //         <Badge variant='outline' className={cn('capitalize', badgeColor)}>
+    //           {printType}
+    //         </Badge>
+    //       </div>
+    //     );
+    //   },
+    //   filterFn: (row, id, value) => {
+    //     return value.includes(row.getValue(id));
+    //   },
+    //   enableHiding: false,
+    //   enableSorting: false
+    // },
+    // {
+    //   id: 'actions',
+    //   cell: BookDataTableRowActions
+    // }
   ];
   return columns;
 }
 
-export const BooksColumns: ColumnDef<TBooksModel["IDOC"]>[] = [
-  {
-    id: 'select',
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && 'indeterminate')
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label='Select all'
-        className='translate-y-[2px]'
-      />
-    ),
-    meta: {
-      className: cn(
-        'sticky md:table-cell left-0 z-10 rounded-tl',
-        'bg-background group-hover/row:bg-muted group-data-[state=selected]/row:bg-muted'
-      )
-    },
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label='Select row'
-        className='translate-y-[2px]'
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false
-  },
-  {
-    accessorKey: 'image',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Image' />
-    ),
-    cell: ({ row }) => {
-      const imageUlr =  row?.original?.volumeInfo?.imageLinks?.thumbnail ? row?.original?.volumeInfo?.imageLinks?.thumbnail : "";
-      console.log("imageUlr", imageUlr);
-      return (
-        <div className='relative aspect-square'>
-          <Image
-            src={imageUlr}
-            // alt={row.getValue('etag')}
-            alt={"ss"}
-            fill
-            className='rounded-lg'
-          />
-        </div>
-      );
-    },
-    meta: {
-      className: cn(
-        'drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.1)] dark:drop-shadow-[0_1px_2px_rgb(255_255_255_/_0.1)] lg:drop-shadow-none',
-        'bg-background group-hover/row:bg-muted group-data-[state=selected]/row:bg-muted',
-        'sticky left-6 md:table-cell'
-      )
-    },
-    enableHiding: false
-  },
-  {
-    accessorKey: 'title',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Title' />
-    ),
-    cell: ({ row }) => {
-        const { title} = row.original?.volumeInfo;
-        return(
-      <BlogLongText className='max-w-52'>{title}</BlogLongText>
-    )},
-    enableHiding: false
-  },
-  {
-    accessorKey: 'author',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Author' />
-    ),
-    cell: ({ row }) => {
-        const { authors } = row.original?.volumeInfo;
-        const author = authors ? authors.join(", ") : "Unknown Author";
-        return(
-      <BlogLongText className='max-w-36'>{author}</BlogLongText>
-    )},
-    enableHiding: false
-  },
-
-  {
-    accessorKey: 'status',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Status' />
-    ),
-    cell: ({ row }) => {
-      const { printType } = row.original?.volumeInfo;
-      const badgeColor = blogcallTypes.get(printType);
-      return (
-        <div className='flex space-x-2'>
-          <Badge variant='outline' className={cn('capitalize', badgeColor)}>
-            {printType}
-          </Badge>
-        </div>
-      );
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
-    },
-    enableHiding: false,
-    enableSorting: false
-  },
-  {
-    id: 'actions',
-    cell: BookDataTableRowActions
-  }
-];

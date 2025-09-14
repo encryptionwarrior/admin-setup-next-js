@@ -24,11 +24,11 @@ import { BooksTable } from "./BooksTable";
         return  <DataTableSkeleton columnCount={5} rowCount={8} filterCount={2} />
     }
 
-    const bookColumns = BooksColumnsFn<TBooksModel["IDOC"]>({ data: [] });
+    // const bookColumns = BooksColumnsFn<TBooksModel["IDOC"]>({ data: [] });
 
     return (
       <>
-    <BooksTable data={allBooks?.data?.data} columns={bookColumns} />
+    {/* <BooksTable data={allBooks?.data?.data} columns={bookColumns} /> */}
     <BooksDialogs currentRow={allBooks?.data?.data[currentRows ?? 0]} open={open} setCurrentRow={setCurrentRows} setOpen={handleOpen} />
       </>
     )
