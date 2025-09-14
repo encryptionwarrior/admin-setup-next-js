@@ -1,5 +1,8 @@
+import { blogs } from "@/features/blogs/blogs";
+
 export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 export const baseUrlApi = `${process.env.NEXT_PUBLIC_BASE_URL}`;
+export const baseUrlApi2 = `${process.env.NEXT_PUBLIC_BASE_URL1}/api/v1`;
 export const baseUrlMedia = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const mediaUrl = (url: string, path: string = 'users') => {
@@ -14,6 +17,15 @@ export const endpoints = {
     refresh: 'auth/refresh-token',
     check: '/admin/auth/check-auth',
     profileDetails: 'auth/profile-details',
+  },
+  bookings: {
+    all: '/booking/all',
+    create: '/v1/admin/book',
+    save: '/v1/admin/book',
+    get: '/v1/admin/book',
+    update: '/v1/admin/book',
+    delete: '/v1/admin/book',
+    status: '/v1/admin/book/status-change',
   },
   user: {
     users: {

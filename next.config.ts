@@ -22,6 +22,11 @@ const baseConfig: NextConfig = {
       },
       {
         protocol: 'http',
+        hostname: 'bikecares-backend.onrender.com',
+        port: ''
+      },
+      {
+        protocol: 'http',
         hostname: 'books.google.com',
         port: ''
       },

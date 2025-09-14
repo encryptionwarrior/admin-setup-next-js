@@ -1,7 +1,6 @@
 import PageContainer from '@/components/layout/page-container';
 import { Separator } from '@/components/ui/separator';
 import { DataTableSkeleton } from '@/components/ui/table/data-table-skeleton';
-import TasksProvider from '@/context/task-context';
 import { searchParamsCache } from '@/lib/searchparams';
 import { SearchParams } from 'nuqs/server';
 import { Suspense } from 'react';

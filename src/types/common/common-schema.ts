@@ -1,7 +1,8 @@
 export type TCommonSchema = {
     BaseApiResponse: {
       statusCode: number;
-      message: string;
+       message: string
+  success: boolean
     };
     BaseApiErrorResponse: {
       statusCode: number;
@@ -28,13 +29,15 @@ export type TCommonSchema = {
       nextPage: unknown;
     };
     BaseApiPaginationResponse: {
-      page: number
+    total: number
   limit: number
+  page: number
   totalPages: number
-  previousPage: boolean
-  nextPage: boolean
-  totalItems: number
-  currentPageItems: number
+  serialNumberStartFrom: number
+  hasPrevPage: boolean
+  hasNextPage: boolean
+  prevPage: unknown
+  nextPage: unknown
     };
   };
   

@@ -1,12 +1,12 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import { destroyCookie, parseCookies, setCookie } from 'nookies';
 import { toast } from 'sonner';
-import { baseUrlApi, endpoints } from '@/api/endpoints/endpoints';
+import { baseUrlApi, baseUrlApi2, endpoints } from '@/api/endpoints/endpoints';
 import { sanitizePayload } from '@/@core/utils/sanitizePayload';
 import { TCommonSchema } from '@/types/common/common-schema';
 
-const axiosInstance = axios.create({
-  baseURL: baseUrlApi,
+const axiosInstance2 = axios.create({
+  baseURL: baseUrlApi2,
 });
 
 let oauthAppAccessToken: string | null = null;
@@ -20,7 +20,7 @@ const refreshToken = async (): Promise<string | null> => {
     const cookies = parseCookies();
     const _token = getOAuthAppAccessToken() || cookies[process.env.NEXT_PUBLIC_TOKEN_NAME!];
 
-    const response = await axiosInstance.post(endpoints.auth.refresh, {
+    const response = await axiosInstance2.post(endpoints.auth.refresh, {
       accessToken: _token,
       refreshToken: cookies[process.env.NEXT_PUBLIC_REFRESH_TOKEN_NAME!],
     });
@@ -45,7 +45,7 @@ const refreshToken = async (): Promise<string | null> => {
   return null;
 };
 
-axiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+axiosInstance2.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const cookies = parseCookies();
   let _token = cookies[process.env.NEXT_PUBLIC_TOKEN_NAME!];
   const AuthToken = getOAuthAppAccessToken();
@@ -66,7 +66,7 @@ axiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   return config;
 });
 
-axiosInstance.interceptors.response.use(
+axiosInstance2.interceptors.response.use(
   response => response,
   async (error: AxiosError<TCommonSchema['BaseApiErrorResponse']>) => {
     if (!error.config) {
@@ -82,7 +82,7 @@ axiosInstance.interceptors.response.use(
       if (newAccessToken) {
         console.info('newAccessToken at axios', newAccessToken);
         originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
-        return axiosInstance(originalRequest);
+        return axiosInstance2(originalRequest);
       }
     }
 
@@ -102,4 +102,4 @@ axiosInstance.interceptors.response.use(
   },
 );
 
-export default axiosInstance;
+export default axiosInstance2;
