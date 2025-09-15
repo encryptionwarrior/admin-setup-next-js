@@ -9,6 +9,7 @@ import { AuthValuesType } from './types';
 import { getOAuthAppAccessToken, setOAuthAppAccessToken } from '@/api/axiosInstance/axiosInstance';
 import { TAuthModel } from '@/api/hooks/auth/schema';
 import { fetchUserDetails } from '@/api/hooks/profile/hooks';
+import { GLOBAL_CONSTANTS } from '@/constants';
 // import { ROUTES } from '@/navigation/sidebar/routes';
 
 
@@ -29,8 +30,8 @@ type Props = {
 
 const AuthProvider = ({ children }: Props) => {
   const [user, setUser] = useState<TAuthModel['IUserData'] | null>(null);
-  const storageTokenKeyName = process.env.NEXT_PUBLIC_TOKEN_NAME;
-  const storageRefreshTokenKeyName = process.env.NEXT_PUBLIC_REFRESH_TOKEN_NAME;
+  const storageTokenKeyName = GLOBAL_CONSTANTS.ACCESS_TOKEN;
+  const storageRefreshTokenKeyName = GLOBAL_CONSTANTS.REFRESH_TOKEN;
   const storedToken = parseCookies(null, storageTokenKeyName);
   const [hasToken, setHasToken] = useState<string | null>(
     getOAuthAppAccessToken() || storedToken[storageTokenKeyName as string],
@@ -45,7 +46,7 @@ const AuthProvider = ({ children }: Props) => {
     setOAuthAppAccessToken(null);
     setUser(null);
     setHasToken(null);
-    // router.push(ROUTES.auth.login);
+    router.push("/sign-in");
   };
 
   // console.info(hasToken, 'At authprovider');

@@ -1,10 +1,11 @@
-import { auth } from '@clerk/nextjs/server';
+import { AuthContext } from '@/context/AuthContext/AuthContext';
 import { redirect } from 'next/navigation';
+import { useContext } from 'react';
 
 export default async function Page() {
-  const { userId } = await auth();
+  const { user } = useContext(AuthContext);
 
-  if (!userId) {
+  if (!user) {
     return redirect('/auth/sign-in');
   } else {
     redirect('/dashboard/overview');

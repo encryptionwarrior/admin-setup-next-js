@@ -1,5 +1,5 @@
 "use client"
-import { HTMLAttributes, useState } from 'react'
+import { HTMLAttributes, useContext, useState } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -17,6 +17,11 @@ import {
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/password-input'
 import Link from 'next/link'
+import { useAuthLoginHook } from '@/api/hooks/auth/hooks'
+import { AuthContext } from '@/context/AuthContext/AuthContext'
+import { useRouter } from 'next/navigation'
+import { GLOBAL_CONSTANTS } from '@/constants'
+import { setCookie } from '@/lib/cookies'
 
 type UserAuthFormProps = HTMLAttributes<HTMLFormElement>
 
@@ -29,7 +34,10 @@ const formSchema = z.object({
 })
 
 export function UserSignInAuthForm({ className, ...props }: UserAuthFormProps) {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const { setUser } = useContext(AuthContext);
+  const router = useRouter();
+  const {mutate: mutateLogIn, isPending} = useAuthLoginHook();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,6 +48,14 @@ export function UserSignInAuthForm({ className, ...props }: UserAuthFormProps) {
   })
 
   function onSubmit(data: z.infer<typeof formSchema>) {
+    mutateLogIn(data, {
+      onSuccess: (data) => {
+        setUser(data.data?.user);
+        setCookie(GLOBAL_CONSTANTS.ACCESS_TOKEN, data.data?.accessToken);
+        setCookie(GLOBAL_CONSTANTS.REFRESH_TOKEN, data.data?.refreshToken);
+        router.push('/dashboard/overview');
+      }
+    })
     setIsLoading(true)
     // eslint-disable-next-line no-console
     console.log(data)

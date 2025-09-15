@@ -9,12 +9,13 @@ import axiosInstance from '@/api/axiosInstance/axiosInstance';
 import { endpoints } from '@/api/endpoints/endpoints';
 import { TCommonSchema } from '@/types/common/common-schema';
 import { AuthContext } from '@/context/AuthContext/AuthContext';
+import axiosInstance2 from '@/api/axiosInstance/axiosInstance2';
 
 export const useAuthLoginHook = () => {
   return useMutation<TAuthModel['ILoginResponse'], Error, TAuthModel['ILoginReq']>({
     mutationKey: [LoginQueryEnum.Login],
     mutationFn: async (payload: TAuthModel['ILoginReq']) => {
-      const res = await axiosInstance.post<TAuthModel['ILoginResponse']>(
+      const res = await axiosInstance2.post<TAuthModel['ILoginResponse']>(
         endpoints.auth.login,
         payload,
       );

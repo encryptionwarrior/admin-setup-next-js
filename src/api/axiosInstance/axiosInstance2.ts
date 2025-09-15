@@ -4,6 +4,7 @@ import { toast } from 'sonner';
 import { baseUrlApi, baseUrlApi2, endpoints } from '@/api/endpoints/endpoints';
 import { sanitizePayload } from '@/@core/utils/sanitizePayload';
 import { TCommonSchema } from '@/types/common/common-schema';
+import { GLOBAL_CONSTANTS } from '@/constants';
 
 const axiosInstance2 = axios.create({
   baseURL: baseUrlApi2,
@@ -18,18 +19,18 @@ export const getOAuthAppAccessToken = () => oauthAppAccessToken;
 const refreshToken = async (): Promise<string | null> => {
   try {
     const cookies = parseCookies();
-    const _token = getOAuthAppAccessToken() || cookies[process.env.NEXT_PUBLIC_TOKEN_NAME!];
+    const _token = getOAuthAppAccessToken() || cookies[GLOBAL_CONSTANTS.ACCESS_TOKEN];
 
     const response = await axiosInstance2.post(endpoints.auth.refresh, {
       accessToken: _token,
-      refreshToken: cookies[process.env.NEXT_PUBLIC_REFRESH_TOKEN_NAME!],
+      refreshToken: cookies[GLOBAL_CONSTANTS.REFRESH_TOKEN],
     });
     const newAccessToken = response.data.data.accessToken;
     console.info('newAccessToken', newAccessToken);
 
     if (newAccessToken) {
       console.info('newAccessToken', newAccessToken);
-      setCookie(null, process.env.NEXT_PUBLIC_TOKEN_NAME!, newAccessToken, {
+      setCookie(null, GLOBAL_CONSTANTS.ACCESS_TOKEN, newAccessToken, {
         path: '/',
         httpOnly: false,
         secure: process.env.NODE_ENV === 'production',
@@ -40,17 +41,16 @@ const refreshToken = async (): Promise<string | null> => {
     }
   } catch (error) {
     console.error('Failed to refresh token:', error);
-    destroyCookie(null, process.env.NEXT_PUBLIC_TOKEN_NAME!);
+    destroyCookie(null, GLOBAL_CONSTANTS.ACCESS_TOKEN!);
   }
   return null;
 };
 
 axiosInstance2.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const cookies = parseCookies();
-  let _token = cookies[process.env.NEXT_PUBLIC_TOKEN_NAME!];
+  let _token = cookies[GLOBAL_CONSTANTS.ACCESS_TOKEN!];
   const AuthToken = getOAuthAppAccessToken();
 
-  console.log('AuthToken hceck +++', _token, process.env.NEXT_PUBLIC_TOKEN_NAME);
 
   if (AuthToken) {
     _token = AuthToken;
