@@ -81,7 +81,7 @@ export function CommonColumnsFn<
       filterFn: (row: Row<TData>, id, value) => {
         return value.includes(row.getValue(id));
       },
-      enableHiding: false,
+      enableHiding: true,
       enableSorting: false
     },
 
@@ -114,7 +114,7 @@ export function CommonColumnsFn<
           'sticky left-6 md:table-cell'
         )
       },
-      enableHiding: false
+      enableHiding: true
     });
   }
 
@@ -140,6 +140,7 @@ function generateItemColumns<TData extends TCommonData>(
     .map(
       ({ key, title }): ColumnDef<TData> => ({
         accessorKey: key,
+        id: title,
         header: ({ column }) => (
           <DataTableColumnHeader column={column} title={title ?? ''} />
         ),
@@ -148,7 +149,9 @@ function generateItemColumns<TData extends TCommonData>(
             {row.original[key] as string}
           </BlogLongText>
         ),
-        enableHiding: false
+        enableHiding: true,
+            
+        
       })
     );
 }

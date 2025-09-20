@@ -13,10 +13,11 @@ import { UserAvatarProfile } from '@/components/user-avatar-profile';
 import { AuthContext } from '@/context/AuthContext/AuthContext';
 import { SignOutButton, useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 export function UserNav() {
   const { logout } = useContext(AuthContext);
-  const { user } = useUser();
+    const { user } = React.useContext(AuthContext)
+  // const { user } = useUser();
   const router = useRouter();
   if (user) {
     return (
@@ -38,7 +39,7 @@ export function UserNav() {
                 {user.fullName}
               </p>
               <p className='text-muted-foreground text-xs leading-none'>
-                {user.emailAddresses[0].emailAddress}
+                {user.fullName?.split(" ")[0]}
               </p>
             </div>
           </DropdownMenuLabel>

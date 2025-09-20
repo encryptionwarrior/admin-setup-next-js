@@ -31,7 +31,6 @@ import {
 import { UserAvatarProfile } from '@/components/user-avatar-profile';
 import { navMainItems } from '@/constants/data';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import { useUser } from '@clerk/nextjs';
 import {
   IconBell,
   IconChevronRight,
@@ -49,6 +48,7 @@ import { Icons } from '../icons';
 import { OrgSwitcher } from '../org-switcher';
 import { useLayout } from '@/context/layout-provider';
 import { useDirection } from '@/context/direction-provider';
+import { AuthContext } from '@/context/AuthContext/AuthContext';
 export const company = {
   name: 'Acme Inc',
   logo: IconPhotoUp,
@@ -64,7 +64,8 @@ const tenants = [
 export default function AppSidebar() {
   const pathname = usePathname();
   const { isOpen } = useMediaQuery();
-  const { user } = useUser();
+  const { user } = React.useContext(AuthContext)
+  // const { user } = useUser();
   const router = useRouter();
   const { collapsible, variant } = useLayout();
   const { dir  } = useDirection()

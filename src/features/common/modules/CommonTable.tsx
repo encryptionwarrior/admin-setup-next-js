@@ -46,7 +46,6 @@ export function CommonTable<T>({ columns, data }: DataTableProps<T extends TComm
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [sorting, setSorting] = useState<SortingState>([]);
 
-  console.log("check columns data ++++")
 
   const table = useReactTable({
     data,
@@ -55,7 +54,8 @@ export function CommonTable<T>({ columns, data }: DataTableProps<T extends TComm
       sorting,
       columnVisibility,
       rowSelection,
-      columnFilters
+      columnFilters,
+
     },
     enableRowSelection: true,
     onRowSelectionChange: setRowSelection,

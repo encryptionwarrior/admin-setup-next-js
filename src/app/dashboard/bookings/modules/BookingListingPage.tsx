@@ -69,7 +69,7 @@ type TColumnType = TCommonData
 
     const headerName: TCommonHeadingName = {
         item1: "User",
-        item2: "Phone",
+        item2: "User Phone",
         item3: "Service Type",
         item4: "Service Date",
         item5: "Mechanic",
