@@ -5,17 +5,27 @@ import { Input } from '@/components/ui/input';
 import { DataTableFacetedFilter } from '@/components/ui/table/data-table-faceted-filter';
 import { DataTableViewOptions } from '@/components/ui/table/data-table-view-options';
 import { bloguserTypes } from '@/features/blogs/blog-data';
+import { ChangeEvent, useState } from 'react';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
+  handleFilterChange: (e: string) => void
 }
 
 export function CommonDataTableToolbar<TData>({
-  table
+  table,
+  handleFilterChange
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
   const hasGlobalFilter = table.getColumn('item1') !== undefined;
   const hasTitle = table.getColumn('item2') !== undefined;
+  const [filterval, setFilterval] = useState("")
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setFilterval(value);
+    handleFilterChange(value);
+  }
 
 
 
@@ -26,11 +36,13 @@ export function CommonDataTableToolbar<TData>({
         <Input
           placeholder='Filter users...'
           value={
-            (hasGlobalFilter ? table.getColumn('item1')?.getFilterValue() as string : "") ?? ''
+            // (hasGlobalFilter ? table.getColumn('item1')?.getFilterValue() as string : "") ?? ''
+            filterval
           }
-          onChange={(event) =>
-            table.getColumn('item1')?.setFilterValue(event.target.value)
-          }
+          // onChange={(event) =>
+          //   table.getColumn('item1')?.setFilterValue(event.target.value)
+          // }
+          onChange={handleChange}
           className='h-8 w-[150px] lg:w-[250px]'
         />
         <div className='flex gap-x-2'>

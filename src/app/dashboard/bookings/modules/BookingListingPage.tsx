@@ -9,6 +9,7 @@ import { CommonDialogs, UsersDialogType } from "@/features/common/modules/Common
 import { CommonColumnsFn } from "@/features/common/modules/CommonColumns";
 import { CommonTable } from "@/features/common/modules/CommonTable";
 import { useGetAllBookigsList } from "@/api/hooks/blogs/hook";
+import useTableFilters from "@/features/common/modules/useTableCommonFilters";
 
 type TItems = {
     key: string,
@@ -45,13 +46,23 @@ type TColumnType = TCommonData
   const BookingListingPage = () => {
     const [currentRows, setCurrentRows] = useState<number | null>(0);
 
-    const {data: allBooks, isLoading, } = useGetAllBookList({page:1, limit:10});
-    const {data: allBooking, isLoading: isBookingLoadind, } = useGetAllBookigsList({page:1, limit:10});
-    const [open, setOpen] = useState<UsersDialogType | null>(null)
+      const {
+    handleChangePage,
+    handleChangeRowsPerPage,
+    handleSearch,
+    payload,
+    search,
+    status,
+  } = useTableFilters({ extraPayload: {} });
+
+    const {data: allBooking, isLoading: isBookingLoadind, } = useGetAllBookigsList(payload);
+    const [open, setOpen] = useState<UsersDialogType | null>(null);
 
     const handleOpen = (str: UsersDialogType | null) => {
       setOpen(str);
     }
+
+
 
       const commonData: TCommonData[] = useMemo(() => allBooking?.data?.bookings ? allBooking?.data?.bookings?.map((items) =>  {
         return {
@@ -89,7 +100,7 @@ type TColumnType = TCommonData
 
     return (
       <>
-    <CommonTable data={commonData} columns={bookColumns} />
+    <CommonTable data={commonData} columns={bookColumns} handleFilterChange={handleSearch} />
     <CommonDialogs currentRow={commonData[currentRows ?? 0]} open={open} setCurrentRow={setCurrentRows} setOpen={handleOpen} />
       </>
     )
