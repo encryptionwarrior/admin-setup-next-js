@@ -17,8 +17,8 @@ export function CommonDataTableToolbar<TData>({
   handleFilterChange
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
-  const hasGlobalFilter = table.getColumn('item1') !== undefined;
-  const hasTitle = table.getColumn('item2') !== undefined;
+  // const hasGlobalFilter = table.getColumn('item1') !== undefined;
+  // const hasTitle = table.getColumn('item2') !== undefined;
   const [filterval, setFilterval] = useState("")
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +46,7 @@ export function CommonDataTableToolbar<TData>({
           className='h-8 w-[150px] lg:w-[250px]'
         />
         <div className='flex gap-x-2'>
-          {table.getColumn('item2') && (
+          {/* {table.getColumn('item2') && (
             <DataTableFacetedFilter
               column={table.getColumn('item2')}
               title='Status'
@@ -57,14 +57,14 @@ export function CommonDataTableToolbar<TData>({
                 { label: 'Suspended', value: 'suspended' }
               ]}
             />
-          )}
-          {hasTitle && (
+          )} */}
+          {/* {hasTitle && (
             <DataTableFacetedFilter
               column={table.getColumn('item2')}
               title='Role'
               options={bloguserTypes.map((t) => ({ ...t }))}
             />
-          )}
+          )} */}
         </div>
         {isFiltered && (
           <Button
