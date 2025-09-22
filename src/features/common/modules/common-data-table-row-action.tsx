@@ -1,7 +1,7 @@
 "use client"
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
 import { Row } from '@tanstack/react-table';
-import { IconEdit, IconTrash } from '@tabler/icons-react';
+import { IconEdit, IconEye, IconTrash } from '@tabler/icons-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -44,6 +44,18 @@ export function CommonDataTableRowActions<T extends {id: string}>({ row }: DataT
             </DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
+          <DropdownMenuItem
+            onClick={() => {
+            //   setCurrentRow(row.original);
+            //   setOpen('delete');
+            }}
+            className=''
+          >
+            View
+            <DropdownMenuShortcut>
+              <IconEye size={16} />
+            </DropdownMenuShortcut>
+          </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => {
             //   setCurrentRow(row.original);
