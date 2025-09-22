@@ -38,11 +38,12 @@ import {
   IconPalette,
   IconNotification,
   IconBrowserCheck,
-  IconArticle
+  IconArticle,
+  IconMotorbike
   
   
 } from '@tabler/icons-react';
-import {ListTodo, Package, MessagesSquare, Users, ShieldCheck, Lock, UserX, FileX, ServerOff, Construction, UserCog, Wrench, Palette, Bell, Monitor, HelpCircle} from "lucide-react"
+import {ListTodo, Package, MessagesSquare, Users, ShieldCheck, Lock, UserX, FileX, ServerOff, Construction, UserCog, Wrench, Palette, Bell, Monitor, HelpCircle, } from "lucide-react"
 
 export type Icon = React.ComponentType<IconProps>;
 
@@ -101,5 +102,6 @@ export const Icons = {
   bell: Bell,
   monitor: Monitor,
   helpCircle: HelpCircle,
-  article: IconArticle
+  article: IconArticle,
+  bike: IconMotorbike
 };

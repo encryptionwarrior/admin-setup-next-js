@@ -16,7 +16,7 @@ const Page = () => {
              Manage your books here.
              </p>
           </div>
-          <CommonPrimaryButtons />
+          {/* <CommonPrimaryButtons /> */}
         </div>
         <Separator />
           <div className='flex 1overflow-auto -mx-6  pl-4 pr-2 md:pr-4 py-1 w-[calc(100dvw-0px)]  md:w-[calc(100dvw-250px)] lg:w-[calc(100dvw-250px)]  lg:flex-row lg:space-y-0 lg:space-x-12'>

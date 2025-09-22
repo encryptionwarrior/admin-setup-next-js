@@ -37,11 +37,12 @@ declare module '@tanstack/react-table' {
 interface DataTableProps<T extends TCommonData> {
   columns: ColumnDef<T>[];
   data: T[];
-  handleFilterChange: (e: string) => void
+  handleSearch: (e: string) => void;
+  handleFilterChange: (name: string, value: string) => void;
 }
 
 
-export function CommonTable<T>({ columns, data, handleFilterChange }: DataTableProps<T extends TCommonData ? T : TCommonData>) {
+export function CommonTable<T>({ columns, data, handleFilterChange, handleSearch }: DataTableProps<T extends TCommonData ? T : TCommonData>) {
   const [rowSelection, setRowSelection] = useState({});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -73,7 +74,7 @@ export function CommonTable<T>({ columns, data, handleFilterChange }: DataTableP
 
   return (
     <div className='h-full w-full space-y-4 overflow-auto'>
-      <CommonDataTableToolbar table={table} handleFilterChange={handleFilterChange} />
+      <CommonDataTableToolbar table={table} handleFilterChange={handleFilterChange} handleSearch={handleSearch} />
       <div className='overflow-hidden rounded-md border'>
         <Table className='overflow-auto'>
           <TableHeader>

@@ -53,6 +53,7 @@ type TColumnType = TCommonData
     payload,
     search,
     status,
+    handleFilterChange
   } = useTableFilters({ extraPayload: {} });
 
     const {data: allBooking, isLoading: isBookingLoadind, } = useGetAllBookigsList(payload);
@@ -98,9 +99,10 @@ type TColumnType = TCommonData
 });
 
 
+
     return (
       <>
-    <CommonTable data={commonData} columns={bookColumns} handleFilterChange={handleSearch} />
+    <CommonTable data={commonData} columns={bookColumns} handleFilterChange={handleFilterChange} handleSearch={handleSearch} />
     <CommonDialogs currentRow={commonData[currentRows ?? 0]} open={open} setCurrentRow={setCurrentRows} setOpen={handleOpen} />
       </>
     )

@@ -9,22 +9,30 @@ import { ChangeEvent, useState } from 'react';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
-  handleFilterChange: (e: string) => void
+  handleSearch: (e: string) => void;
+    handleFilterChange: (name: string, value: string) => void;
 }
 
 export function CommonDataTableToolbar<TData>({
   table,
-  handleFilterChange
+  handleFilterChange,
+  handleSearch
 }: DataTableToolbarProps<TData>) {
-  const isFiltered = table.getState().columnFilters.length > 0;
-  // const hasGlobalFilter = table.getColumn('item1') !== undefined;
-  // const hasTitle = table.getColumn('item2') !== undefined;
-  const [filterval, setFilterval] = useState("")
+  const [filterval, setFilterval] = useState("");
+
+    const [status, setStatus] = useState<string[]>([]);
+
+  const handleStatusChange = (newValue: string[]) => {
+    setStatus(newValue);
+
+   handleFilterChange('status', newValue.join(','))
+  };
+
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setFilterval(value);
-    handleFilterChange(value);
+    handleSearch(value);
   }
 
 
@@ -46,36 +54,30 @@ export function CommonDataTableToolbar<TData>({
           className='h-8 w-[150px] lg:w-[250px]'
         />
         <div className='flex gap-x-2'>
-          {/* {table.getColumn('item2') && (
-            <DataTableFacetedFilter
-              column={table.getColumn('item2')}
-              title='Status'
-              options={[
-                { label: 'Active', value: 'active' },
-                { label: 'Inactive', value: 'inactive' },
-                { label: 'Invited', value: 'invited' },
-                { label: 'Suspended', value: 'suspended' }
-              ]}
-            />
-          )} */}
-          {/* {hasTitle && (
-            <DataTableFacetedFilter
-              column={table.getColumn('item2')}
-              title='Role'
-              options={bloguserTypes.map((t) => ({ ...t }))}
-            />
-          )} */}
+        
+              <DataTableFacetedFilter
+        title="Status"
+        value={status}
+        onChange={handleStatusChange}
+        options={[
+          { label: "Pending", value: "pending" },
+          { label: "Active", value: "active" },
+          { label: "Inactive", value: "inactive" },
+          { label: "Invited", value: "invited" },
+          { label: "Suspended", value: "suspended" },
+        ]}
+      />
+       
         </div>
-        {isFiltered && (
-          <Button
-            variant='ghost'
-            onClick={() => table.resetColumnFilters()}
-            className='h-8 px-2 lg:px-3'
-          >
-            Reset
-            <Cross2Icon className='ml-2 h-4 w-4' />
-          </Button>
-        )}
+        {status.length > 0 && (
+        <Button
+          variant="ghost"
+          onClick={() => setStatus([])}
+          className="h-8 px-2 lg:px-3"
+        >
+          Reset
+        </Button>
+      )}
       </div>
       <DataTableViewOptions table={table} />
     </div>

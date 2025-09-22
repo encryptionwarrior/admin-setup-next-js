@@ -32,6 +32,7 @@ const debouncedSearchVal = useDebounce(search.trim(), 500);
     limit: 10,
     search: '',
     sortField: '',
+    status: '',
     sortOrder: 'desc',
 
     ...extraPayload,
@@ -42,8 +43,12 @@ const debouncedSearchVal = useDebounce(search.trim(), 500);
   }, []);
 
   const handleFilterChange = useCallback((name: string, value: string) => {
-    console.info('handleFilterChange', name, value);
+    console.info('handleFilterChange ++++', name, value);
     setFilters(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+    setPayload(prev => ({
       ...prev,
       [name]: value,
     }));
