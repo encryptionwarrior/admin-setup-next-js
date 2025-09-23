@@ -11,9 +11,9 @@ const Page = () => {
       <div className='flex flex-1 flex-col space-y-4'>
       <div className='mb-2 flex flex-wrap items-center justify-between space-y-2'>
           <div>
-             <h2 className='text-2xl font-bold tracking-tight'>Book List</h2>
+             <h2 className='text-2xl font-bold tracking-tight'>Booking List</h2>
             <p className='text-muted-foreground'>
-             Manage your books here.
+             Manage your bookings here.
              </p>
           </div>
           {/* <CommonPrimaryButtons /> */}

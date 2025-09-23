@@ -99,8 +99,6 @@ type TColumnType = TCommonData
     }
 
 
-    // console.log('commonData', commonData);
-    console.log('metadata', metadata);
 
     if(isBookingLoadind || !commonData || !allBooking){
         return  <DataTableSkeleton columnCount={5} rowCount={8} filterCount={2} />

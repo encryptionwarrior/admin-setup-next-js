@@ -29,7 +29,7 @@ const debouncedSearchVal = useDebounce(search.trim(), 500);
 
   const [payload, setPayload] = useState<BasePayload & T>({
     page: 1,
-    limit: 3,
+    limit: 10,
     search: '',
     sortField: '',
     status: '',
