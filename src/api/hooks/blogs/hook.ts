@@ -11,7 +11,7 @@ export const useGetAllBookigsList = (payload: TCommonSchema["BaseApiPaginationPa
         queryKey: ["BookingsAll", JSON.stringify(payload)],
         queryFn: async () => {
             const res = await axiosInstance2.get<TBookingModel["getAllBooksSuccessResponse"]>(
-                `${endpoints.bookings.all}?page=1&limit=10`
+                `${endpoints.bookings.all}?page=${payload?.page}&limit=${payload?.limit}`
               );
         
               return res?.data;

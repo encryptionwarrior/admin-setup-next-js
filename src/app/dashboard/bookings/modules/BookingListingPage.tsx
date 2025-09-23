@@ -10,11 +10,8 @@ import { CommonColumnsFn } from "@/features/common/modules/CommonColumns";
 import { CommonTable } from "@/features/common/modules/CommonTable";
 import { useGetAllBookigsList } from "@/api/hooks/blogs/hook";
 import useTableFilters from "@/features/common/modules/useTableCommonFilters";
+import { TCommonSchema } from "@/types/common/common-schema";
 
-type TItems = {
-    key: string,
-    value: string
-} 
 
 
 export type TCommonHeadingName = {
@@ -51,8 +48,6 @@ type TColumnType = TCommonData
     handleChangeRowsPerPage,
     handleSearch,
     payload,
-    search,
-    status,
     handleFilterChange
   } = useTableFilters({ extraPayload: {} });
 
@@ -79,6 +74,21 @@ type TColumnType = TCommonData
 
     }) : [], [allBooking?.data?.bookings]);
 
+    const metadata: TCommonSchema["BaseMetaResponse"] = useMemo(() => {
+      return {
+        total: allBooking?.data?.total ?? 0,
+        limit: payload?.limit ?? allBooking?.data?.limit ?? 10,
+        page: allBooking?.data?.page ?? 1,
+        totalPages: allBooking?.data?.totalPages ?? 1,
+        serialNumberStartFrom: ((allBooking?.data?.page ?? 1) - 1) * (allBooking?.data?.limit ?? 10) + 1,
+        hasPrevPage: allBooking?.data?.hasPrevPage ?? false,
+        hasNextPage: allBooking?.data?.hasNextPage ?? false,
+        prevPage: allBooking?.data?.prevPage ?? 0,
+        nextPage: allBooking?.data?.nextPage ?? 0,
+
+      }
+    }, [allBooking?.data?.bookings])
+
     const headerName: TCommonHeadingName = {
         item1: "User",
         item2: "User Phone",
@@ -89,7 +99,10 @@ type TColumnType = TCommonData
     }
 
 
-    if(isBookingLoadind || !commonData){
+    // console.log('commonData', commonData);
+    console.log('metadata', metadata);
+
+    if(isBookingLoadind || !commonData || !allBooking){
         return  <DataTableSkeleton columnCount={5} rowCount={8} filterCount={2} />
     }
 
@@ -102,7 +115,7 @@ type TColumnType = TCommonData
 
     return (
       <>
-    <CommonTable data={commonData} columns={bookColumns} handleFilterChange={handleFilterChange} handleSearch={handleSearch} />
+    <CommonTable data={commonData} metaData={metadata} columns={bookColumns} handleFilterChange={handleFilterChange} handleSearch={handleSearch} handleChangePage={handleChangePage} handleChangeRowsPerPage={handleChangeRowsPerPage} />
     <CommonDialogs currentRow={commonData[currentRows ?? 0]} open={open} setCurrentRow={setCurrentRows} setOpen={handleOpen} />
       </>
     )

@@ -29,7 +29,7 @@ const debouncedSearchVal = useDebounce(search.trim(), 500);
 
   const [payload, setPayload] = useState<BasePayload & T>({
     page: 1,
-    limit: 10,
+    limit: 3,
     search: '',
     sortField: '',
     status: '',
@@ -70,17 +70,17 @@ const debouncedSearchVal = useDebounce(search.trim(), 500);
     }
   };
 
-  const handleChangePage = (_: unknown, newPage: number) => {
+  const handleChangePage = (newPage: number) => {
     setPayload({
       ...payload,
       page: newPage,
     });
   };
 
-  const handleChangeRowsPerPage = (value: string) => {
+  const handleChangeRowsPerPage = (value: number) => {
     setPayload({
       ...payload,
-      limit: parseInt(value, 10),
+      limit: value,
       page: 1,
     });
   };

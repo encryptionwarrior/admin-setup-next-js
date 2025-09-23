@@ -26,6 +26,7 @@ import {
 import { DataTablePagination } from '@/components/ui/table/data-table-pagination';
 import { CommonDataTableToolbar } from './CommonDataTableToolbar';
 import { TCommonData } from '@/app/dashboard/bookings/modules/BookingListingPage';
+import { TCommonSchema } from '@/types/common/common-schema';
 
 declare module '@tanstack/react-table' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -37,12 +38,15 @@ declare module '@tanstack/react-table' {
 interface DataTableProps<T extends TCommonData> {
   columns: ColumnDef<T>[];
   data: T[];
+  metaData:  TCommonSchema["BaseMetaResponse"];
   handleSearch: (e: string) => void;
   handleFilterChange: (name: string, value: string) => void;
+  handleChangePage: (page: number) => void;
+  handleChangeRowsPerPage: (limit: number) => void;
 }
 
 
-export function CommonTable<T>({ columns, data, handleFilterChange, handleSearch }: DataTableProps<T extends TCommonData ? T : TCommonData>) {
+export function CommonTable<T>({ columns, data, handleFilterChange, handleSearch, metaData, handleChangePage, handleChangeRowsPerPage }: DataTableProps<T extends TCommonData ? T : TCommonData>) {
   const [rowSelection, setRowSelection] = useState({});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -135,7 +139,7 @@ export function CommonTable<T>({ columns, data, handleFilterChange, handleSearch
           </TableBody>
         </Table>
       </div>
-      <DataTablePagination table={table} />
+      <DataTablePagination  metaData={metaData} onPageChange={handleChangePage} onPageSizeChange={handleChangeRowsPerPage} pageSizeOptions={[10, 20, 30, 40, 50]}  />
     </div>
   );
 }

@@ -19,25 +19,26 @@ export type TCommonSchema = {
       role?: string;
     };
     BaseMetaResponse: {
-      totalDocs: number;
-      skip: number;
-      page: number;
-      limit: number;
-      hasPrevPage: boolean;
-      hasNextPage: boolean;
-      prevPage: unknown;
-      nextPage: unknown;
-    };
-    BaseApiPaginationResponse: {
-    total: number
+       total: number
   limit: number
   page: number
   totalPages: number
   serialNumberStartFrom: number
   hasPrevPage: boolean
   hasNextPage: boolean
-  prevPage: unknown
-  nextPage: unknown
+  prevPage: number
+  nextPage: number
+    };
+    BaseApiPaginationResponse: {
+      total: number
+  limit: number
+  page: number
+  totalPages: number
+  serialNumberStartFrom: number
+  hasPrevPage: boolean
+  hasNextPage: boolean
+  prevPage: number
+  nextPage: number
     };
   };
   

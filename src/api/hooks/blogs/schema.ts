@@ -53,7 +53,7 @@ Avatar2: {
   _id: string
 }
 
-    getAllBooksSuccessResponse :TCommonSchema['BaseApiResponse'] & {
+    getAllBooksSuccessResponse :TCommonSchema['BaseApiResponse'] &  {
       data: TBookingModel['Data']  
     }
     
