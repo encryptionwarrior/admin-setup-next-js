@@ -44,8 +44,9 @@ export function CommonDataTableRowActions<T extends {id: string}>({ row, headerN
             </DropdownMenuShortcut>
           </DropdownMenuItem>
           )}
-          <DropdownMenuSeparator />
           {headerName?.actions?.onView && (
+            <>
+          <DropdownMenuSeparator />
           <DropdownMenuItem
              onClick={() => headerName?.actions?.onView && headerName?.actions?.onView(row?.original?.id)}
             className=''
@@ -55,6 +56,7 @@ export function CommonDataTableRowActions<T extends {id: string}>({ row, headerN
               <IconEye size={16} />
             </DropdownMenuShortcut>
           </DropdownMenuItem>
+          </>
           )}
           {headerName?.actions?.onDelete && (
           <DropdownMenuItem

@@ -11,6 +11,7 @@ import { CommonTable } from "@/features/common/modules/CommonTable";
 import { useGetAllBookigsList } from "@/api/hooks/blogs/hook";
 import useTableFilters from "@/features/common/modules/useTableCommonFilters";
 import { TCommonSchema } from "@/types/common/common-schema";
+import { useRouter } from "next/navigation";
 
 
 
@@ -47,6 +48,7 @@ type TColumnType = TCommonData
   
   const BookingListingPage = () => {
     const [currentRows, setCurrentRows] = useState<number | null>(0);
+    const router = useRouter();
 
       const {
     handleChangePage,
@@ -68,7 +70,7 @@ type TColumnType = TCommonData
     }
 
     const habdleView = (id: string) => {
-      console.log("view", id);
+      router.push(`/dashboard/bookings/view/${id}`);
     }
 
     const handleDelete = (id: string) => {
@@ -113,9 +115,9 @@ type TColumnType = TCommonData
         item5: "Mechanic",
         item6: "Phone",
         actions: {
-          onEdit: handleEdit,
+          // onEdit: handleEdit,
           onView: habdleView,
-          onDelete: handleDelete
+          // onDelete: handleDelete
         }
     }
 
