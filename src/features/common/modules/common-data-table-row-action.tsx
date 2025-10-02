@@ -12,12 +12,14 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import { useRouter } from 'next/navigation';
+import { TCommonHeadingName } from '@/app/dashboard/bookings/modules/BookingListingPage';
 
 interface DataTableRowActionsProps<T> {
   row: Row<T>;
+    headerName?: TCommonHeadingName;
 }
 
-export function CommonDataTableRowActions<T extends {id: string}>({ row }: DataTableRowActionsProps<T>) {
+export function CommonDataTableRowActions<T extends {id: string}>({ row, headerName }: DataTableRowActionsProps<T>) {
   const router = useRouter();
   return (
     <>
@@ -32,23 +34,20 @@ export function CommonDataTableRowActions<T extends {id: string}>({ row }: DataT
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align='end' className='w-[160px]'>
+          {headerName?.actions?.onEdit && (
           <DropdownMenuItem
-            onClick={() => {
-              // setOpen('edit');
-              router.push(`/dashboard/blogs/${row?.original?.id}`);
-            }}
+            onClick={() => headerName?.actions?.onEdit && headerName?.actions?.onEdit(row?.original?.id)}
           >
             Edit
             <DropdownMenuShortcut>
               <IconEdit size={16} />
             </DropdownMenuShortcut>
           </DropdownMenuItem>
+          )}
           <DropdownMenuSeparator />
+          {headerName?.actions?.onView && (
           <DropdownMenuItem
-            onClick={() => {
-            //   setCurrentRow(row.original);
-            //   setOpen('delete');
-            }}
+             onClick={() => headerName?.actions?.onView && headerName?.actions?.onView(row?.original?.id)}
             className=''
           >
             View
@@ -56,11 +55,10 @@ export function CommonDataTableRowActions<T extends {id: string}>({ row }: DataT
               <IconEye size={16} />
             </DropdownMenuShortcut>
           </DropdownMenuItem>
+          )}
+          {headerName?.actions?.onDelete && (
           <DropdownMenuItem
-            onClick={() => {
-            //   setCurrentRow(row.original);
-            //   setOpen('delete');
-            }}
+             onClick={() => headerName?.actions?.onDelete && headerName?.actions?.onDelete(row?.original?.id)}
             className='text-red-500!'
           >
             Delete
@@ -68,6 +66,7 @@ export function CommonDataTableRowActions<T extends {id: string}>({ row }: DataT
               <IconTrash size={16} />
             </DropdownMenuShortcut>
           </DropdownMenuItem>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </>

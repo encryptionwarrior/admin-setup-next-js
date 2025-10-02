@@ -21,7 +21,12 @@ export type TCommonHeadingName = {
     item3?: string;
     item4?: string
     item5?: string
-    item6?: string
+    item6?: string;
+    actions: {
+      onEdit?: (id: string) => void;
+      onView?: (id: string) => void;
+      onDelete?: (id: string) => void;
+    }
 }
 
 export type TCommonData = {
@@ -58,6 +63,17 @@ type TColumnType = TCommonData
       setOpen(str);
     }
 
+    const handleEdit = (id: string) => {
+      console.log("edit", id);
+    }
+
+    const habdleView = (id: string) => {
+      console.log("view", id);
+    }
+
+    const handleDelete = (id: string) => {
+      console.log("delete", id);
+    }
 
 
       const commonData: TCommonData[] = useMemo(() => allBooking?.data?.bookings ? allBooking?.data?.bookings?.map((items) =>  {
@@ -95,7 +111,12 @@ type TColumnType = TCommonData
         item3: "Service Type",
         item4: "Service Date",
         item5: "Mechanic",
-        item6: "Phone"
+        item6: "Phone",
+        actions: {
+          onEdit: handleEdit,
+          onView: habdleView,
+          onDelete: handleDelete
+        }
     }
 
 

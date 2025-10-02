@@ -6,7 +6,6 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { DataTableColumnHeader } from '@/features/tasks/task-data-table-column-header';
 
 import Image from 'next/image';
-import { TBooksModel } from '@/api/hooks/books/schema';
 import BlogLongText from '@/features/blogs/blog-long-text';
 import { blogcallTypes } from '@/features/blogs/blog-data';
 import { CommonDataTableRowActions } from './common-data-table-row-action';
@@ -87,7 +86,10 @@ export function CommonColumnsFn<
 
     {
       id: 'actions',
-      cell: CommonDataTableRowActions
+      // cell: CommonDataTableRowActions
+      cell: ({ row }: { row: Row<TData> }) => (
+        <CommonDataTableRowActions row={row} headerName={headerName} />
+      ),
     }
   ];
 
